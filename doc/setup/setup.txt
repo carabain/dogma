@@ -1,0 +1,10 @@
+./geth.exe init /c/ws/blockchain/genesis.json --datadir /c/ws/blockchain/data/MyPrivateChain
+./geth.exe --fast --cache 512 --ipcpath "geth.ipc" --networkid 123 --datadir /c/ws/blockchain/data/MyPrivateChain console
+./geth.exe attach \\\\.\\pipe\\geth.ipc
+
+personal.newAccount()
+Passphrase: xxx
+"0xc9d877b3a474ba43bde43136469a72fe5c8caa9c"
+
+
+eth.getBalance("0xc9d877b3a474ba43bde43136469a72fe5c8caa9c")
