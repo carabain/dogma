@@ -1,10 +1,57 @@
-./geth.exe init /c/ws/blockchain/genesis.json --datadir /c/ws/blockchain/data/MyPrivateChain
-./geth.exe --fast --cache 512 --ipcpath "geth.ipc" --networkid 123 --datadir /c/ws/blockchain/data/MyPrivateChain console
-./geth.exe attach \\\\.\\pipe\\geth.ipc
+-----------------------------
 
+Chain initialiseren met genesis block:
+geth --datadir /c/ws/blockchain/DogmaChain/data init doc/setup/genesis.json
+
+Chain starten:
+geth --datadir /c/ws/blockchain/DogmaChain/data --networkid 2636 console 2>> /c/ws/blockchain/DogmaChain/DogmaChain.log
+
+Extra console:
+geth attach \\\\.\\pipe\\geth.ipc
+
+Log volgen:
+tail -f /c/ws/blockchain/DogmaChain/DogmaChain.log
+
+-----------------------------
+
+Account maken:
 personal.newAccount()
-Passphrase: xxx
-"0xc9d877b3a474ba43bde43136469a72fe5c8caa9c"
 
+Account unlocken:
+personal.unlockAccount(web3.eth.accounts[0])
 
-eth.getBalance("0xc9d877b3a474ba43bde43136469a72fe5c8caa9c")
+Saldo opvragen:
+eth.getBalance("0x5e06159015565e1ffadc88267265a820e28f9b3b")
+
+Miner starten/stoppen:
+miner.start() / miner.stop()
+
+-----------------------------
+
+Solidity smart contract compileren:
+solc -o ../target --bin --abi nl/belastingdienst/dogma/Greeter.sol
+
+Smart contract deployen
+loadScript("src/deploy_greeter.js")
+
+Controleren of smart contract aanwezig is (als er iets andrs dan 0x verschijnt):
+eth.getCode(greeter.address)
+
+Weer opruimen als je het contract niet meer wilt:
+greeter.kill.sendTransaction({from:eth.accounts[0]})
+
+-----
+var greeterContract = web3.eth.contract(<contents of the file Greeter.abi>)
+var greeterCompiled = "0x" + "<contents of the file Greeter.bin"
+var greeter = greeterContract.new(
+   _greeting,
+   {
+     from: web3.eth.accounts[0],
+     data: greeterCompiled,
+     gas: '4700000'
+   }, function (e, contract){
+    console.log(e, contract);
+    if (typeof contract.address !== 'undefined') {
+         console.log('Contract mined! address: ' + contract.address + ' transactionHash: ' + contract.transactionHash);
+    }
+ })
