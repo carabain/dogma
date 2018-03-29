@@ -40,6 +40,40 @@ eth.getCode(greeter.address)
 Weer opruimen als je het contract niet meer wilt:
 greeter.kill.sendTransaction({from:eth.accounts[0]})
 
+----
+
+(https://kndrck.co/posts/ethereum_oracles_a_simple_guide/)
+
+Truffle installeren:
+npm install -g truffle ethereumjs-testrpc
+
+Naar je project dir gaan:
+cd appelmans
+
+Project verder inrichten:
+npm install truffle-contract web3 bluebird fetch --save
+
+truffle.js aanpassen:
+
+module.exports = {
+  // See <http://truffleframework.com/docs/advanced/configuration>
+  // to customize your Truffle configuration!
+  migrations_directory: "./migrations",
+  networks: {
+    development: {
+      host: "localhost",
+      port: 8545,
+      network_id: "*", // Match any network id
+      gas: 4710000
+    }
+  }
+}
+
+Run testrpc in a separate terminal, and then truffle compile && truffle migrate. This compiles our contracts and deploys them onto our private testnet.
+
+
+
+
 -----
 var greeterContract = web3.eth.contract(<contents of the file Greeter.abi>)
 var greeterCompiled = "0x" + "<contents of the file Greeter.bin"
