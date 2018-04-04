@@ -2,27 +2,15 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <parent>
+        <groupId>com.carabain.dogma</groupId>
+        <artifactId>dogma</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+
     <groupId>com.carabain.dogma</groupId>
-    <artifactId>dogma</artifactId>
+    <artifactId>dogma-service</artifactId>
     <version>1.0.0-SNAPSHOT</version>
-    <packaging>pom</packaging>
-
-    <name>dogma</name>
-    <url>http://dogma.carabain.com</url>
-
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.9</maven.compiler.source>
-        <maven.compiler.target>1.9</maven.compiler.target>
-    </properties>
-
-    <modules>
-        <module>dogma-domain</module>
-        <module>dogma-service</module>
-        <module>dogma-web</module>
-        <module>dogma-ear</module>
-    </modules>
-
 
     <build>
         <plugins>
@@ -32,9 +20,9 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.web3j</groupId>
-            <artifactId>core</artifactId>
-            <version>3.3.1</version>
+            <groupId>com.carabain.dogma</groupId>
+            <artifactId>dogma-domain</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
