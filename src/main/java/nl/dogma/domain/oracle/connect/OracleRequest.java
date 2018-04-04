@@ -1,9 +1,9 @@
-package nl.belastingdienst.blockchain.oracle.connect;
+package nl.dogma.domain.oracle.connect;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import nl.belastingdienst.blockchain.oracle.domain.OracleId;
+import nl.dogma.domain.oracle.domain.OracleId;
 
 public class OracleRequest {
 

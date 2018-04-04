@@ -1,10 +1,10 @@
-package nl.belastingdienst.blockchain.oracle.connect;
+package nl.dogma.domain.oracle.connect;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import nl.belastingdienst.blockchain.oracle.domain.BrOracle;
-import nl.belastingdienst.blockchain.oracle.domain.OracleId;
+import nl.dogma.domain.oracle.domain.BrOracle;
+import nl.dogma.domain.oracle.domain.OracleId;
 
 public class OracleResponse {
 	

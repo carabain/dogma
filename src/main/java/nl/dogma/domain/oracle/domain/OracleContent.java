@@ -1,4 +1,4 @@
-package nl.belastingdienst.blockchain.oracle.domain;
+package nl.dogma.domain.oracle.domain;
 
 import java.util.ArrayList;
 import java.util.List;

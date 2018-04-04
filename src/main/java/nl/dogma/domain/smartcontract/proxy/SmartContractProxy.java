@@ -1,7 +1,7 @@
-package nl.belastingdienst.blockchain.smartcontract.proxy;
+package nl.dogma.domain.smartcontract.proxy;
 
-import nl.belastingdienst.blockchain.oracle.connect.OracleRequest;
-import nl.belastingdienst.blockchain.oracle.connect.OracleResponse;
+import nl.dogma.domain.oracle.connect.OracleRequest;
+import nl.dogma.domain.oracle.connect.OracleResponse;
 
 public class SmartContractProxy {
 

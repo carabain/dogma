@@ -1,4 +1,4 @@
-package nl.belastingdienst.blockchain.oracle.domain;
+package nl.dogma.domain.oracle.domain;
 
 /**
  * Beschikbare formaten waarin gegevens beschikbaar kunnen worden gesteld.

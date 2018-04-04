@@ -1,8 +1,8 @@
-package nl.belastingdienst.blockchain.oracle.domain;
+package nl.dogma.domain.oracle.domain;
 
 import org.junit.Test;
 
-import nl.belastingdienst.blockchain.oracle.util.OracleContentGroupDescribe;
+import nl.dogma.domain.oracle.util.OracleContentGroupDescribe;
 
 public class OracleContentTest {
 

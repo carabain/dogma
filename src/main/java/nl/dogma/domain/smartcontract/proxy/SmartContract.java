@@ -1,4 +1,4 @@
-package nl.belastingdienst.blockchain.smartcontract.proxy;
+package nl.dogma.domain.smartcontract.proxy;
 
 public class SmartContract {
 

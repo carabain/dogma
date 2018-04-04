@@ -1,7 +1,7 @@
-package nl.belastingdienst.blockchain.oracle.util;
+package nl.dogma.domain.oracle.util;
 
-import nl.belastingdienst.blockchain.oracle.domain.OracleContentGroup;
-import nl.belastingdienst.blockchain.oracle.domain.OracleContentValue;
+import nl.dogma.domain.oracle.domain.OracleContentGroup;
+import nl.dogma.domain.oracle.domain.OracleContentValue;
 
 public class OracleContentGroupDescribe {
 
