@@ -12,6 +12,7 @@
     <artifactId>dogma-ear</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>ear</packaging>
+    <name>${project.artifactId}</name>
 
     <build>
         <plugins>
