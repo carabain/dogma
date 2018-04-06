@@ -1,5 +1,5 @@
 export class Oracle {
-  id: number;
+  id: string;
   name: string;
   description: string;
   creationDate: any;

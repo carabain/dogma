@@ -1,3 +1,44 @@
-<p>
-  test-data works!
-</p>
+<h2>Registered SmartContracts</h2>
+<p-table [value]="contracts" [columns]="cols" [styleClass]="'table-striped table-hover'">
+  <ng-template pTemplate="header" let-columns>
+    <tr>
+      <th *ngFor="let col of columns" [pSortableColumn]="col.field" [ngClass]="col.field ==='id' ? 'small' : null">
+        {{col.header}}
+        <p-sortIcon [field]="col.field"></p-sortIcon>
+      </th>
+      <th></th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-rowData let-columns="columns">
+    <tr>
+      <td *ngFor="let col of columns" [ngClass]="col.field ==='id' ? 'small' : null">
+        <span *ngIf="col.field !== 'values'">{{rowData[col.field]}}</span>
+        <span *ngIf="col.field === 'values'">{{rowData[col.field]|json}}</span>
+      </td>
+      <td>
+        <button class="btn btn-primary" (click)="edit(rowData)">Set Testdata</button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+
+
+<p-dialog header="Set Testdata" [(visible)]="display" modal="modal">
+  <h5>Registered Oracles</h5>
+  <div *ngIf="selectedContract">
+    <div *ngFor="let oracle of selectedOracles; let i = index" [attr.data-index]="i">
+      <h6>Oracle: {{oracle.name}}</h6>
+      <form>
+        <div class="form-group" *ngFor="let parameter of oracle.values">
+          <label for="{{parameter.id}}">{{parameter.description}}</label>
+          <input id="{{parameter.id}}" name="{{parameter.id}}" [(ngModel)]="parameter.value" placeholder="Enter {{parameter.description}}" class="form-control" >
+        </div>
+      </form>
+    </div>
+  </div>
+  <p-footer>
+    <button class="btn btn-primary" (click)="submit(values)">Submit</button>
+  </p-footer>
+</p-dialog>
+
+
