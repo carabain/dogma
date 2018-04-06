@@ -1,0 +1,8 @@
+{
+  "host": "localhost",
+  "netwerkid": "1234",
+  "smartContractAddress": "0x8cdaf0cd259887258bc13a92c0a6da92698644c0",
+  "smartContractAbi": "Hier komt JSON",
+  "smartContractBin": "Hier komt BINCODE",
+  "id": 1
+}
