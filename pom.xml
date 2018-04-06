@@ -12,8 +12,11 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.9</maven.compiler.source>
-        <maven.compiler.target>1.9</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <version.jackson>2.6.3</version.jackson>
+        <version.junit>4.12</version.junit>
+        <version.org.web3j>3.3.1</version.org.web3j>
     </properties>
 
     <modules>
@@ -23,25 +26,29 @@
         <module>dogma-ear</module>
     </modules>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.web3j</groupId>
+            <artifactId>core</artifactId>
+            <version>${version.org.web3j}</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${version.junit}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${version.jackson}</version>
+        </dependency>
+    </dependencies>
 
     <build>
         <plugins>
 
         </plugins>
     </build>
-
-    <dependencies>
-        <dependency>
-            <groupId>org.web3j</groupId>
-            <artifactId>core</artifactId>
-            <version>3.3.1</version>
-        </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
 
 </project>

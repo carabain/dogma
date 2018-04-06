@@ -1,5 +1,6 @@
 package nl.dogma.domain.oracle.domain;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import nl.dogma.domain.oracle.util.OracleContentGroupDescribe;
@@ -33,5 +34,6 @@ public class OracleContentTest {
 		System.out.println(OracleContentGroupDescribe.describe(persoon));
 		
 		// then
+		Assert.assertTrue(true);
 	}
 }

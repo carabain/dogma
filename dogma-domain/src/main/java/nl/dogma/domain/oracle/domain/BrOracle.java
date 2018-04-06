@@ -1,6 +1,8 @@
 package nl.dogma.domain.oracle.domain;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Beschrijving (definitie) van een Oracle.<br>
@@ -9,15 +11,15 @@ import java.time.LocalDate;
  */
 public class BrOracle {
 
-	private OracleId id;
+	private String id;
 	private String description;
 	private LocalDate creationDate;
-	private Long hashSmartContract;
 
 	private ObjectType infoType;
 	private BasisRegistratie basisRegistratie;
 
-	private OracleContent oracleContent;
+	private List<OracleContentValue> values = new ArrayList<>();
+
 
 	public BasisRegistratie getBasisRegistratie() {
 		return basisRegistratie;
@@ -27,11 +29,9 @@ public class BrOracle {
 		this.basisRegistratie = basisRegistratie;
 	}
 
-	public OracleContent getOracleContent() {
-		return oracleContent;
-	}
+	public List<OracleContentValue> getValues(){ return values;}
 
-	public OracleId getId() {
+	public String getId() {
 		return id;
 	}
 
@@ -47,11 +47,15 @@ public class BrOracle {
 		return creationDate;
 	}
 
-	public Long getHashSmartContract() {
-		return hashSmartContract;
+	public void setInfoType(ObjectType infoType) {
+		this.infoType = infoType;
 	}
 
-	public void setHashSmartContract(Long hashSmartContract) {
-		this.hashSmartContract = hashSmartContract;
+	public void addValue(OracleContentValue contentValue) {
+		this.values.add(contentValue);
+	}
+
+	public void setCreationDate(LocalDate creationDate) {
+		this.creationDate = creationDate;
 	}
 }
