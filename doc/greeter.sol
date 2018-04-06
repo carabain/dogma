@@ -12,6 +12,9 @@ contract mortal {
 }
 
 contract greeter is mortal {
+
+    event callbackDummy();
+
     /* Define variable greeting of the type string */
     string greeting;
 
@@ -22,6 +25,7 @@ contract greeter is mortal {
 
     /* Main function */
     function greet() constant returns (string) {
+        callbackDummy();
         return greeting;
     }
 }
