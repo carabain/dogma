@@ -16,7 +16,7 @@ public class BrOracle {
 	private String name;
 	private String description;
 	private LocalDate creationDate;
-	private URL endpoint;
+	private String endpoint;
 
 	private ObjectType infoType;
 	private BasisRegistratie basisRegistratie;
@@ -28,13 +28,7 @@ public class BrOracle {
 		return basisRegistratie;
 	}
 
-	public String getName() {
-		return name;
-	}
 
-	public void setName(String name) {
-		this.name = name;
-	}
 
 	public void setBasisRegistratie(BasisRegistratie basisRegistratie) {
 		this.basisRegistratie = basisRegistratie;
@@ -62,10 +56,10 @@ public class BrOracle {
 		this.infoType = infoType;
 	}
 
-	public void setEndpoint(URL endpoint) {
+	public void setEndpoint(String endpoint) {
 		this.endpoint = endpoint;
 	}
-	public URL getEndpoint() {
+	public String getEndpoint() {
 		return endpoint;
 	}
 
@@ -77,4 +71,16 @@ public class BrOracle {
 	public void setCreationDate(LocalDate creationDate) {
 		this.creationDate = creationDate;
 	}
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }

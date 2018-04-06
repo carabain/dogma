@@ -16,27 +16,20 @@ public class DogmaServiceImplTest {
         BrOracle brOracle = new BrOracle();
         brOracle.setBasisRegistratie(BasisRegistratie.BAG);
         brOracle.setInfoType(ObjectType.PERSON);
-        brOracle.addValue(new OracleContentValue("basisink", "BasisInkomen", DataType.LONG));
+        brOracle.addValue(new OracleContentValue("naam", "naam", DataType.STRING));
+        brOracle.addValue(new OracleContentValue("naam", "naam", DataType.STRING));
         brOracle.setCreationDate(LocalDate.now());
 
 
         DutchBrOracle dutchBrOracle = new DutchBrOracle();
-        dutchBrOracle.addBrOracle(ObjectType.INCOME, BasisRegistratie.BRI, brOracle);
+        dutchBrOracle.addBrOracle(ObjectType.INCOME, brOracle);
 
 
         ObjectMapper mapper = new ObjectMapper();
         String jsonInString = mapper.writeValueAsString(dutchBrOracle);
 
         System.out.println(jsonInString);
-        //JSON from file to Object
-        //Staff obj = mapper.readValue(new File("c:\\file.json"), Staff.class);
 
-        //JSON from URL to Object
-        //Staff obj = mapper.readValue(new URL("http://mkyong.com/api/staff.json"), Staff.class);
-
-        //JSON from String to Object
-        //Staff obj = mapper.readValue(jsonInString, Staff.class);
-
-        Assert.assertTrue(true);
+        Assert.assertTrue(jsonInString.contains("BAG"));
     }
 }
