@@ -1,0 +1,28 @@
+{
+  "id": null,
+  "description": null,
+  "creationDate": {
+    "year": 2018,
+    "month": "APRIL",
+    "chronology": {
+      "calendarType": "iso8601",
+      "id": "ISO"
+    },
+    "era": "CE",
+    "monthValue": 4,
+    "dayOfMonth": 6,
+    "dayOfYear": 96,
+    "dayOfWeek": "FRIDAY",
+    "leapYear": false
+  },
+  "infoType": "PERSON",
+  "basisRegistratie": "BAG",
+  "values": [
+    {
+      "id": "basisink",
+      "description": "BasisInkomen",
+      "datatype": "LONG",
+      "value": null
+    }
+  ]
+}

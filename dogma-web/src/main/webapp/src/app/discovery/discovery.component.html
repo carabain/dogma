@@ -1,3 +1,20 @@
-<p>
-  discovery works!
-</p>
+<h2>Available Oracles</h2>
+<p-table [value]="oracles" [columns]="cols" [styleClass]="'table-striped table-hover'">
+  <ng-template pTemplate="header" let-columns>
+    <tr>
+      <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+        {{col.header}}
+        <p-sortIcon [field]="col.field"></p-sortIcon>
+      </th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-rowData let-columns="columns">
+    <tr>
+      <td *ngFor="let col of columns">
+        <span *ngIf="col.field !== 'values'">{{rowData[col.field]}}</span>
+        <span *ngIf="col.field === 'values'">{{rowData[col.field]|json}}</span>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+

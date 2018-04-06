@@ -1,0 +1,62 @@
+{
+  "oracles": [
+    {
+      "id": 1,
+      "name": "Belastingdienst Inkomensgegevens",
+      "description": "Oracle for querying Dutch Tax Office for income data.",
+      "url": "https://oracle.belastingdienst.nl/o1",
+      "params": [
+        "smartSontractId",
+        "subject(bsn)"
+      ],
+      "values": [
+        "nettoinkomen",
+        "brutoinkomen"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Gemeentelijke Basisadministratie Personen",
+      "description": "Oracle for querying Dutch Comunity Administration for Person data",
+      "url": "https://oracle.belastingdienst.nl/o2",
+      "params": [
+        "smartSontractId",
+        "subject(bsn)"
+      ],
+      "values": {
+        "straat": "string",
+        "huisnummer": "number",
+        "postcode": "string",
+        "plaats": "string"
+      }
+    },
+    {
+      "id": 3,
+      "description": "nieuw",
+      "creationDate": {
+        "year": 2018,
+        "month": "APRIL",
+        "chronology": {
+          "calendarType": "iso8601",
+          "id": "ISO"
+        },
+        "era": "CE",
+        "monthValue": 4,
+        "dayOfMonth": 6,
+        "dayOfYear": 96,
+        "dayOfWeek": "FRIDAY",
+        "leapYear": false
+      },
+      "infoType": "PERSON",
+      "basisRegistratie": "BAG",
+        "values": [
+        {
+          "id": "basisink",
+          "description": "BasisInkomen",
+          "datatype": "LONG",
+          "value": null
+        }
+      ]
+    }
+  ]
+}

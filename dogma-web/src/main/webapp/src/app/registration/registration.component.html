@@ -1,3 +1,28 @@
-<p>
-  registration works!
-</p>
+<h2>Register your SmartContract</h2>
+<form>
+  <div class="form-group">
+    <label for="host">Host</label>
+    <input type="text" class="form-control" id="host" placeholder="Enter Host" [(ngModel)]="host" name="host">
+  </div>
+  <div class="form-group">
+    <label for="netwerkid">NetwerkId</label>
+    <input type="text" class="form-control" id="netwerkid" placeholder="Enter NetwerkId" [(ngModel)]="netwerkid"
+           name="netwerkid">
+  </div>
+  <div class="form-group">
+    <label for="smartContractAddress">SmartContractAddress</label>
+    <input type="text" class="form-control" id="smartContractAddress" placeholder="Enter SmartContractAddress"
+           [(ngModel)]="smartContractAddress" name="smartContractAddress">
+  </div>
+  <div class="form-group">
+    <label for="smartContractABI">SmartContractAbi</label>
+    <textarea type="text" rows="10" class="form-control" id="smartContractABI" placeholder="Enter SmartContractAbi"
+              [(ngModel)]="smartContractAbi" name="smartContractAbi"></textarea>
+  </div>
+  <div class="form-group">
+    <label for="smartContractBIN">SmartContractBin</label>
+    <textarea type="text" rows="10" class="form-control" id="smartContractBIN" placeholder="Enter SmartContractBin"
+              [(ngModel)]="smartContractBin" name="smartContractBin"></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary" (click)="register()">Register</button>
+</form>

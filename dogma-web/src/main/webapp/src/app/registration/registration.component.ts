@@ -7,9 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegistrationComponent implements OnInit {
 
+  host;
+  netwerkid;
+  smartContractAddress;
+  smartContractAbi;
+  smartContractBin;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  register(){
+    console.log('register', this.host, this.netwerkid,this.smartContractAddress, this.smartContractAbi, this.smartContractBin);
   }
 
 }
