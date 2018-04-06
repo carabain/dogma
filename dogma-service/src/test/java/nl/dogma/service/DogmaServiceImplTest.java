@@ -28,8 +28,6 @@ public class DogmaServiceImplTest {
         ObjectMapper mapper = new ObjectMapper();
         String jsonInString = mapper.writeValueAsString(dutchBrOracle);
 
-        System.out.println(jsonInString);
-
         Assert.assertTrue(jsonInString.contains("BAG"));
     }
 }
