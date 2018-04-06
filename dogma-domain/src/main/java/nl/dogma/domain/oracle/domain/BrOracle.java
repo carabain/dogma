@@ -1,5 +1,6 @@
 package nl.dogma.domain.oracle.domain;
 
+import java.net.URL;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,8 +13,10 @@ import java.util.List;
 public class BrOracle {
 
 	private String id;
+	private String name;
 	private String description;
 	private LocalDate creationDate;
+	private URL endpoint;
 
 	private ObjectType infoType;
 	private BasisRegistratie basisRegistratie;
@@ -23,6 +26,14 @@ public class BrOracle {
 
 	public BasisRegistratie getBasisRegistratie() {
 		return basisRegistratie;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public void setBasisRegistratie(BasisRegistratie basisRegistratie) {
@@ -50,6 +61,14 @@ public class BrOracle {
 	public void setInfoType(ObjectType infoType) {
 		this.infoType = infoType;
 	}
+
+	public void setEndpoint(URL endpoint) {
+		this.endpoint = endpoint;
+	}
+	public URL getEndpoint() {
+		return endpoint;
+	}
+
 
 	public void addValue(OracleContentValue contentValue) {
 		this.values.add(contentValue);

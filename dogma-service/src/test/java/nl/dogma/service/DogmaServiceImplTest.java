@@ -19,8 +19,13 @@ public class DogmaServiceImplTest {
         brOracle.addValue(new OracleContentValue("basisink", "BasisInkomen", DataType.LONG));
         brOracle.setCreationDate(LocalDate.now());
 
+
+        DutchBrOracle dutchBrOracle = new DutchBrOracle();
+        dutchBrOracle.addBrOracle(ObjectType.INCOME, BasisRegistratie.BRI, brOracle);
+
+
         ObjectMapper mapper = new ObjectMapper();
-        String jsonInString = mapper.writeValueAsString(brOracle);
+        String jsonInString = mapper.writeValueAsString(dutchBrOracle);
 
         System.out.println(jsonInString);
         //JSON from file to Object
