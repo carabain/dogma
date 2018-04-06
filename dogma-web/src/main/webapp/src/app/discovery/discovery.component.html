@@ -2,7 +2,7 @@
 <p-table [value]="oracles" [columns]="cols" [styleClass]="'table-striped table-hover'">
   <ng-template pTemplate="header" let-columns>
     <tr>
-      <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+      <th *ngFor="let col of columns" [pSortableColumn]="col.field" [ngClass]="col.field ==='id' ? 'small' : null">
         {{col.header}}
         <p-sortIcon [field]="col.field"></p-sortIcon>
       </th>
@@ -10,7 +10,7 @@
   </ng-template>
   <ng-template pTemplate="body" let-rowData let-columns="columns">
     <tr>
-      <td *ngFor="let col of columns">
+      <td *ngFor="let col of columns" [ngClass]="col.field ==='id' ? 'small' : null">
         <span *ngIf="col.field !== 'values'">{{rowData[col.field]}}</span>
         <span *ngIf="col.field === 'values'">{{rowData[col.field]|json}}</span>
       </td>
