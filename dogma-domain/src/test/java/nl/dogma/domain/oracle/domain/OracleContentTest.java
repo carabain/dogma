@@ -31,9 +31,9 @@ public class OracleContentTest {
 		oracleContent.addOracleContentGroup(persoon);
 		
 		// when
-		System.out.println(OracleContentGroupDescribe.describe(persoon));
+		String result = OracleContentGroupDescribe.describe(persoon);
 		
 		// then
-		Assert.assertTrue(true);
+		Assert.assertTrue(result.contains("linkerarm"));
 	}
 }

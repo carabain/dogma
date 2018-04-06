@@ -8,9 +8,8 @@ public class OracleContentGroupDescribe {
 	private static String tab = "   ";
 
 	public static String describe(OracleContentGroup oracleContentGroup) {
-		String loctab = tab;
 		StringBuffer content = new StringBuffer();
-		return OracleContentGroupDescribe.describe(oracleContentGroup, content, loctab);
+		return OracleContentGroupDescribe.describe(oracleContentGroup, content, tab);
 	}
 
 	private static String describe(OracleContentGroup oracleContentGroup, StringBuffer content, String loctab) {
