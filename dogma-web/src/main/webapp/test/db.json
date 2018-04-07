@@ -74,12 +74,14 @@
           "description": "Huisnummer",
           "datatype": "string",
           "value": null
-        },{
+        },
+        {
           "id": "postcode",
           "description": "Postcode",
           "datatype": "string",
           "value": null
-        },{
+        },
+        {
           "id": "plaats",
           "description": "Plaats",
           "datatype": "string",
@@ -112,6 +114,171 @@
       "smartContractAbi": "bla",
       "smartContractBin": "blabla",
       "id": 2
+    }
+  ],
+  "registrations": [
+    {
+      "id": "user1",
+      "registrations": [
+        {
+          "oracles": [
+            {
+              "id": "1",
+              "name": "Belastingdienst Inkomensgegevens",
+              "description": "Oracle for querying Dutch Tax Office for income data.",
+              "url": "https://oracle.belastingdienst.nl/o1",
+              "params": [
+                "smartSontractId",
+                "subject(bsn)"
+              ],
+              "values": [
+                {
+                  "id": "basisink",
+                  "description": "BasisInkomen",
+                  "datatype": "LONG",
+                  "value": null
+                },
+                {
+                  "id": "nettoink",
+                  "description": "NettoInkomen",
+                  "datatype": "LONG",
+                  "value": null
+                }
+              ]
+            },
+            {
+              "id": "3",
+              "description": "nieuw",
+              "name": "Nieuw",
+              "creationDate": {
+                "year": 2018,
+                "month": "APRIL",
+                "chronology": {
+                  "calendarType": "iso8601",
+                  "id": "ISO"
+                },
+                "era": "CE",
+                "monthValue": 4,
+                "dayOfMonth": 6,
+                "dayOfYear": 96,
+                "dayOfWeek": "FRIDAY",
+                "leapYear": false
+              },
+              "infoType": "PERSON",
+              "basisRegistratie": "BAG",
+              "values": [
+                {
+                  "id": "straat",
+                  "description": "Straat",
+                  "datatype": "string",
+                  "value": null
+                },
+                {
+                  "id": "huisnummer",
+                  "description": "Huisnummer",
+                  "datatype": "string",
+                  "value": null
+                },
+                {
+                  "id": "postcode",
+                  "description": "Postcode",
+                  "datatype": "string",
+                  "value": null
+                },
+                {
+                  "id": "plaats",
+                  "description": "Plaats",
+                  "datatype": "string",
+                  "value": null
+                }
+              ]
+            }
+          ],
+          "host": "localhost",
+          "netwerkid": "1234",
+          "smartContractAddress": "0x8cdaf0cd259887258bc13a92c0a6da92698644c0",
+          "smartContractAbi": "Hier komt JSON",
+          "smartContractBin": "Hier komt BINCODE",
+          "id": 1,
+          "description": "SmartContract TestCase 1"
+        },
+        {
+          "oracles": [
+            {
+              "id": "2",
+              "name": "Gemeentelijke Basisadministratie Personen",
+              "description": "Oracle for querying Dutch Comunity Administration for Person data",
+              "url": "https://oracle.belastingdienst.nl/o2",
+              "params": [
+                "smartSontractId",
+                "subject(bsn)"
+              ],
+              "values": [
+                {
+                  "id": "basisink",
+                  "description": "BasisInkomen",
+                  "datatype": "LONG",
+                  "value": null
+                }
+              ]
+            },
+            {
+              "id": "3",
+              "description": "nieuw",
+              "name": "Nieuw",
+              "creationDate": {
+                "year": 2018,
+                "month": "APRIL",
+                "chronology": {
+                  "calendarType": "iso8601",
+                  "id": "ISO"
+                },
+                "era": "CE",
+                "monthValue": 4,
+                "dayOfMonth": 6,
+                "dayOfYear": 96,
+                "dayOfWeek": "FRIDAY",
+                "leapYear": false
+              },
+              "infoType": "PERSON",
+              "basisRegistratie": "BAG",
+              "values": [
+                {
+                  "id": "straat",
+                  "description": "Straat",
+                  "datatype": "string",
+                  "value": null
+                },
+                {
+                  "id": "huisnummer",
+                  "description": "Huisnummer",
+                  "datatype": "string",
+                  "value": null
+                },
+                {
+                  "id": "postcode",
+                  "description": "Postcode",
+                  "datatype": "string",
+                  "value": null
+                },
+                {
+                  "id": "plaats",
+                  "description": "Plaats",
+                  "datatype": "string",
+                  "value": null
+                }
+              ]
+            }
+          ],
+          "host": "localhost",
+          "netwerkid": "9999",
+          "smartContractAddress": "0x8cdaf0cd259887258bc13a92c0a6da92698644c0",
+          "smartContractAbi": "bla",
+          "smartContractBin": "blabla",
+          "id": 2,
+          "description": "SmartContract TestCase 2"
+        }
+      ]
     }
   ]
 }
