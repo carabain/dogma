@@ -3,6 +3,7 @@ import {Contract} from '../shared/model/contract.model';
 import {Oracle} from '../shared/model/oracle.model';
 import {ContractsService} from '../shared/services/contracts.service';
 import {OracleService} from '../shared/services/oracle.service';
+import {UserService} from '../shared/services/user.service';
 
 @Component({
   selector: 'app-registration',
@@ -17,7 +18,7 @@ export class RegistrationComponent implements OnInit {
   indexes: { id: string, checked: boolean }[] = [];
   checkall: false;
 
-  constructor(private contractsService: ContractsService, private oracleService: OracleService) {
+  constructor(private contractsService: ContractsService, private oracleService: OracleService, private userService: UserService) {
   }
 
   ngOnInit() {
@@ -36,13 +37,14 @@ export class RegistrationComponent implements OnInit {
         this.contract.oracleids.push(this.indexes[i].id);
       }
     }
+    this.contract.user = this.userService.username;
     this.contractsService.saveContract(this.contract).subscribe();
   }
 
   checkAll() {
-      for (let i = 0; i < this.oracles.length; i++) {
-        this.indexes[i].checked = !this.checkall;
-      }
+    for (let i = 0; i < this.oracles.length; i++) {
+      this.indexes[i].checked = !this.checkall;
+    }
   }
 
 }

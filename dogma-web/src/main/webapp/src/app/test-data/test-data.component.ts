@@ -13,19 +13,19 @@ export class TestDataComponent implements OnInit {
 
   cols = [
     {field: 'id', header: '#'},
+    {field: 'description', header: 'Description'},
     {field: 'host', header: 'Host'},
     {field: 'netwerkid', header: 'NetwerkId'},
     {field: 'smartContractAddress', header: 'SmartContractAddress'}
   ];
 
-  values=[];
+  values = [];
 
   display = false;
   contracts: Contract[];
   oracles: Oracle[];
 
   selectedContract: Contract;
-  selectedOracles: Oracle[];
 
   constructor(private contractService: ContractsService, private oracleService: OracleService) {
   }
@@ -37,25 +37,11 @@ export class TestDataComponent implements OnInit {
 
   edit(contract) {
     this.selectedContract = contract;
-    this.selectedOracles = [];
-    for (let i = 0; i < this.selectedContract.oracleids.length; i++) {
-      const oracle = this.findOracle(this.selectedContract.oracleids[i]);
-      this.selectedOracles.push(oracle)
-    }
     this.display = true;
   }
 
-  private findOracle(id): Oracle {
-    for (let i = 0; i < this.oracles.length; i++) {
-      if (this.oracles[i].id === id) {
-        return this.oracles[i];
-      }
-    }
-    return null;
-  }
-
-  submit(values) {
-    console.log(values);
+  submit() {
+    console.log(this.selectedContract);
     this.display = false;
   }
 

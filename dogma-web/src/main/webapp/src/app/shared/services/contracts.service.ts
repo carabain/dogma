@@ -3,6 +3,7 @@ import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Rx';
 import {environment} from '../../../environments/environment';
 import {Contract} from '../model/contract.model';
+import {UserService} from './user.service';
 
 @Injectable()
 export class ContractsService {
@@ -10,11 +11,11 @@ export class ContractsService {
   contractsUrl = environment.restServiceUrl + 'registration';
 
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private userService: UserService) {
   }
 
   getContracts(): Observable<Contract[]> {
-    return this.http.get(this.contractsUrl).map(result => <Contract[]>result);
+    return this.http.get(this.contractsUrl + 's/' + this.userService.username).map(result => <Contract[]>result);
   }
 
   saveContract(contract: Contract) {
