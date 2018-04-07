@@ -25,7 +25,7 @@ export class DiscoveryComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.oracleService.getOracles().subscribe(result => this.oracles = result);
+      this.oracleService.getOracles().subscribe(result => this.oracles = result);
   }
 
 }

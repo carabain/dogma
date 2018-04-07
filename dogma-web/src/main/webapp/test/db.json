@@ -1,7 +1,7 @@
 {
   "oracles": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Belastingdienst Inkomensgegevens",
       "description": "Oracle for querying Dutch Tax Office for income data.",
       "url": "https://oracle.belastingdienst.nl/o1",
@@ -10,12 +10,22 @@
         "subject(bsn)"
       ],
       "values": [
-        "nettoinkomen",
-        "brutoinkomen"
+        {
+          "id": "basisink",
+          "description": "BasisInkomen",
+          "datatype": "LONG",
+          "value": null
+        },
+        {
+          "id": "nettoink",
+          "description": "NettoInkomen",
+          "datatype": "LONG",
+          "value": null
+        }
       ]
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Gemeentelijke Basisadministratie Personen",
       "description": "Oracle for querying Dutch Comunity Administration for Person data",
       "url": "https://oracle.belastingdienst.nl/o2",
@@ -23,17 +33,19 @@
         "smartSontractId",
         "subject(bsn)"
       ],
-      "values": {
-        "straat": "string",
-        "huisnummer": "number",
-        "postcode": "string",
-        "plaats": "string"
-      }
+      "values": [
+        {
+          "id": "basisink",
+          "description": "BasisInkomen",
+          "datatype": "LONG",
+          "value": null
+        }
+      ]
     },
     {
-      "id": 3,
+      "id": "3",
       "description": "nieuw",
-      "name":"Nieuw",
+      "name": "Nieuw",
       "creationDate": {
         "year": 2018,
         "month": "APRIL",
@@ -50,14 +62,56 @@
       },
       "infoType": "PERSON",
       "basisRegistratie": "BAG",
-        "values": [
+      "values": [
         {
-          "id": "basisink",
-          "description": "BasisInkomen",
-          "datatype": "LONG",
+          "id": "straat",
+          "description": "Straat",
+          "datatype": "string",
+          "value": null
+        },
+        {
+          "id": "huisnummer",
+          "description": "Huisnummer",
+          "datatype": "string",
+          "value": null
+        },{
+          "id": "postcode",
+          "description": "Postcode",
+          "datatype": "string",
+          "value": null
+        },{
+          "id": "plaats",
+          "description": "Plaats",
+          "datatype": "string",
           "value": null
         }
       ]
+    }
+  ],
+  "registration": [
+    {
+      "oracleids": [
+        "1",
+        "3"
+      ],
+      "host": "localhost",
+      "netwerkid": "1234",
+      "smartContractAddress": "0x8cdaf0cd259887258bc13a92c0a6da92698644c0",
+      "smartContractAbi": "Hier komt JSON",
+      "smartContractBin": "Hier komt BINCODE",
+      "id": 1
+    },
+    {
+      "oracleids": [
+        "2",
+        "3"
+      ],
+      "host": "localhost",
+      "netwerkid": "9999",
+      "smartContractAddress": "0x8cdaf0cd259887258bc13a92c0a6da92698644c0",
+      "smartContractAbi": "bla",
+      "smartContractBin": "blabla",
+      "id": 2
     }
   ]
 }

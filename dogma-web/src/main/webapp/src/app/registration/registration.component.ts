@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Contract} from '../shared/model/contract.model';
+import {Oracle} from '../shared/model/oracle.model';
+import {ContractsService} from '../shared/services/contracts.service';
+import {OracleService} from '../shared/services/oracle.service';
 
 @Component({
   selector: 'app-registration',
@@ -7,19 +11,38 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegistrationComponent implements OnInit {
 
-  host;
-  netwerkid;
-  smartContractAddress;
-  smartContractAbi;
-  smartContractBin;
+  contract = new Contract();
 
-  constructor() { }
+  oracles: Oracle[];
+  indexes: { id: string, checked: boolean }[] = [];
+  checkall: false;
 
-  ngOnInit() {
+  constructor(private contractsService: ContractsService, private oracleService: OracleService) {
   }
 
-  register(){
-    console.log('register', this.host, this.netwerkid,this.smartContractAddress, this.smartContractAbi, this.smartContractBin);
+  ngOnInit() {
+    this.oracleService.getOracles().subscribe(result => {
+      this.oracles = result;
+      for (let i = 0; i < this.oracles.length; i++) {
+        this.indexes[i] = {id: this.oracles[i].id, checked: false};
+      }
+    });
+  }
+
+  register() {
+    console.log('register', this.contract);
+    for (let i = 0; i < this.oracles.length; i++) {
+      if (this.indexes[i].checked) {
+        this.contract.oracleids.push(this.indexes[i].id);
+      }
+    }
+    this.contractsService.saveContract(this.contract).subscribe();
+  }
+
+  checkAll() {
+      for (let i = 0; i < this.oracles.length; i++) {
+        this.indexes[i].checked = !this.checkall;
+      }
   }
 
 }
