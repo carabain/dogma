@@ -2,7 +2,6 @@ package nl.dogma.service;
 
 
 import nl.dogma.domain.oracle.domain.BrOracle;
-import nl.dogma.domain.oracle.domain.DutchBrOracle;
 import nl.dogma.domain.oracle.domain.DutchBrOracleFactory;
 import nl.dogma.domain.registration.Registration;
 import nl.dogma.domain.registration.RegistrationDb;
@@ -29,8 +28,8 @@ public class DogmaServiceImpl implements DogmaService {
     @Path("/oracles")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public DutchBrOracle getDutchBrOracle() {
-        return DutchBrOracleFactory.getInstance().getDutchBrOracle();
+    public List<BrOracle> getDutchBrOracle() {
+        return DutchBrOracleFactory.getInstance().getDutchBrOracle().getOracles();
     }
 
     @Override
@@ -45,8 +44,8 @@ public class DogmaServiceImpl implements DogmaService {
     @Path("/registration")
     @POST
     @Produces(MediaType.APPLICATION_JSON)
-    public void addRegistration(String userid, Registration registration) {
-        RegistrationDb.getInstance().addRegistration(userid, registration);
+    public void addRegistration(Registration registration) {
+        RegistrationDb.getInstance().addRegistration(registration);
     }
 
     @Override
@@ -102,7 +101,7 @@ public class DogmaServiceImpl implements DogmaService {
 
         try {
             Credentials credentials = WalletUtils.loadCredentials(password, pathToWallet);
-            Greeter contract = Greeter.deploy( web3, credentials,  GAS_PRICE, GAS_LIMIT, message).send();
+            Greeter contract = Greeter.deploy(web3, credentials, GAS_PRICE, GAS_LIMIT, message).send();
 
 //            final Event event = new Event("callbackDummy",
 //                    Arrays.<TypeReference<?>>asList(),
@@ -116,7 +115,8 @@ public class DogmaServiceImpl implements DogmaService {
 //            });
 
             Subscription subscription = web3.blockObservable(false).subscribe(block -> {
-                String ls = null; ls.toString();
+                String ls = null;
+                ls.toString();
                 System.out.println("log.toString(): " + block.toString());
             });
 

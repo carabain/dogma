@@ -1,0 +1,16 @@
+{
+  "routes": [
+    {
+      "path": "/dogma/rest/*",
+      "upstream": "dogma"
+    }
+  ],
+  "upstreams": {
+    "dogma": {
+      "port": 8080
+    }
+  },
+  "address": "localhost",
+  "port":"3000",
+  "changeOrigin":"true"
+}

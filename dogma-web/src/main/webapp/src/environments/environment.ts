@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  restServiceUrl: 'http://localhost:3000/'
+  restServiceUrl: 'http://localhost:1337/localhost:8080/dogma-web/rest/'
 };

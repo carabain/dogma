@@ -2,13 +2,13 @@ import {Oracle} from './oracle.model';
 
 export class Contract {
   id: string;
-  user: string;
+  userid: string;
   description: string;
   host: string;
   netwerkid: string;
-  smartContractAddress: string;
-  smartContractAbi: string;
+  smartcontractAdress: string;
+  smartcontractAbi: string;
   smartContractBin: string;
-  oracleids?: string[] = [];
+  oracleIds?: string[] = [];
   oracles?: Oracle[] = [];
 }
