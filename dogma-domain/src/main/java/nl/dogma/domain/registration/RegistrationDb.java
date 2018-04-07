@@ -1,5 +1,8 @@
 package nl.dogma.domain.registration;
 
+import nl.dogma.domain.oracle.domain.BrOracleDb;
+import nl.dogma.domain.oracle.domain.BrOracleFactory;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -28,6 +31,12 @@ public class RegistrationDb {
             regs = new ArrayList<>();
             registrations.put(registration.getUserid(), regs);
         }
+
+        // templates van oracles toevoegen vanuit db
+        for (String id : registration.getOracleIds()) {
+            registration.getOracles().add(BrOracleFactory.getInstance().createBrOracle(id));
+        }
+
         regs.add(registration);
     }
 

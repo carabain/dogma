@@ -30,6 +30,7 @@ public class DutchBrOracleFactory {
         brOraclepersoon.addValue(new OracleContentValue("achternaam", "achternaam", DataType.STRING));
         brOraclepersoon.addValue(new OracleContentValue("gebdat", "geboortedatum", DataType.DATE));
         brOraclepersoon.setCreationDate(LocalDate.now());
+        BrOracleDb.getInstance().addBrOracle(brOraclepersoon);
 
         BrOracle brOracleinkomen = new BrOracle();
         brOracleinkomen.setEndpoint("endpoint");
@@ -40,6 +41,7 @@ public class DutchBrOracleFactory {
         brOracleinkomen.setInfoType(ObjectType.INCOME);
         brOracleinkomen.addValue(new OracleContentValue("bsink", "basisinkomen van een natuurlijk persoon", DataType.LONG));
         brOracleinkomen.setCreationDate(LocalDate.now());
+        BrOracleDb.getInstance().addBrOracle(brOracleinkomen);
 
         DutchBrOracle dutchBrOracle = new DutchBrOracle();
         dutchBrOracle.addBrOracle(ObjectType.PERSON, brOraclepersoon);
