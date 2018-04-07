@@ -19,13 +19,14 @@ public class BrOracleDb {
     }
 
     public void addBrOracle(BrOracle oracle) {
-        BrOracle brOracle = oracles.get(oracle.getId());
-        if (brOracle == null) {
-            oracles.put(oracle.getId(), brOracle);
-        }
+        oracles.put(oracle.getId(), oracle);
     }
 
     public BrOracle getOracle(String oracleid) {
         return oracles.get(oracleid);
+    }
+
+    public void clear() {
+        oracles.clear();
     }
 }

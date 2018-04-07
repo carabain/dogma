@@ -19,6 +19,8 @@ public class DutchBrOracleFactory {
     }
 
     public DutchBrOracle getDutchBrOracle() {
+        BrOracleDb.getInstance().clear();
+
         BrOracle brOraclepersoon = new BrOracle();
         brOraclepersoon.setEndpoint("endpoint");
         brOraclepersoon.setDescription("Persoonsgegevens ModelA");
