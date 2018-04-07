@@ -5,6 +5,8 @@ import java.util.List;
 
 public class Registration {
 
+    private String id;
+
     private String userid;
 
     private String host;
@@ -80,5 +82,13 @@ public class Registration {
 
     public void setOracleIds(List<String> oracleIds) {
         this.oracleIds = oracleIds;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

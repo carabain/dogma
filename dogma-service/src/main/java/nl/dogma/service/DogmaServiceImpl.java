@@ -54,7 +54,7 @@ public class DogmaServiceImpl implements DogmaService {
     @DELETE
     @Produces(MediaType.APPLICATION_JSON)
     public void removeRegistration(@PathParam("user") String userid, @PathParam("id") String registration) {
-//        RegistrationDb.getInstance().addRegistration(userid, registration);
+        RegistrationDb.getInstance().removeRegistration(userid, registration);
     }
 
 
