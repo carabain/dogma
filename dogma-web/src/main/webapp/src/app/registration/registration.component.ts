@@ -34,10 +34,10 @@ export class RegistrationComponent implements OnInit {
     console.log('register', this.contract);
     for (let i = 0; i < this.oracles.length; i++) {
       if (this.indexes[i].checked) {
-        this.contract.oracleids.push(this.indexes[i].id);
+        this.contract.oracleIds.push(this.indexes[i].id);
       }
     }
-    this.contract.user = this.userService.username;
+    this.contract.userid = this.userService.username;
     this.contractsService.saveContract(this.contract).subscribe();
   }
 

@@ -16,7 +16,7 @@ export class TestDataComponent implements OnInit {
     {field: 'description', header: 'Description'},
     {field: 'host', header: 'Host'},
     {field: 'netwerkid', header: 'NetwerkId'},
-    {field: 'smartContractAddress', header: 'SmartContractAddress'}
+    {field: 'smartcontractAdress', header: 'SmartContractAddress'}
   ];
 
   values = [];

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Oracle} from '../shared/model/oracle.model';
 import {OracleService} from '../shared/services/oracle.service';
 
@@ -10,13 +10,13 @@ import {OracleService} from '../shared/services/oracle.service';
 export class DiscoveryComponent implements OnInit {
 
   cols = [
-    { field: 'id', header: '#' },
-    { field: 'name', header: 'Name' },
-    { field: 'description', header: 'Description' },
-    { field: 'url', header: 'Url' },
-    { field: 'infoType', header: 'InfoType' },
-    { field: 'basisRegistratie', header: 'BasisRegistratie' },
-    { field: 'values', header: 'Values' },
+    {field: 'id', header: '#'},
+    {field: 'name', header: 'Name'},
+    {field: 'description', header: 'Description'},
+    {field: 'endpoint', header: 'Endpoint'},
+    {field: 'infoType', header: 'InfoType'},
+    {field: 'basisRegistratie', header: 'BasisRegistratie'},
+    {field: 'values', header: 'Values'},
   ];
 
   oracles: Oracle[];
@@ -25,7 +25,10 @@ export class DiscoveryComponent implements OnInit {
   }
 
   ngOnInit() {
-      this.oracleService.getOracles().subscribe(result => this.oracles = result);
+    this.oracleService.getOracles().subscribe(result => {
+      this.oracles = result;
+      console.log(this.oracles);
+    });
   }
 
 }

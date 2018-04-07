@@ -3,7 +3,7 @@ export class Oracle {
   name: string;
   description: string;
   creationDate: any;
-  url: string;
+  endpoint: string;
   infoType: string;
   basisRegistratie: string;
   values: any;
