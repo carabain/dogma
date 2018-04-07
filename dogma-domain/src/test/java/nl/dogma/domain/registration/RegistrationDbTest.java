@@ -19,11 +19,13 @@ public class RegistrationDbTest {
         String userid = "user";
         Registration reg1 = new Registration();
         reg1.setId("id");
+        reg1.setUserid(userid);
         Registration reg2 = new Registration();
         reg2.setId("id2");
+        reg2.setUserid(userid);
 
-        RegistrationDb.getInstance().addRegistration(userid, reg1);
-        RegistrationDb.getInstance().addRegistration(userid, reg2);
+        RegistrationDb.getInstance().addRegistration(reg1);
+        RegistrationDb.getInstance().addRegistration(reg2);
 
         // when
         List<Registration> regs = RegistrationDb.getInstance().getRegistrations(userid);
@@ -39,11 +41,13 @@ public class RegistrationDbTest {
         String userid = "user";
         Registration reg1 = new Registration();
         reg1.setId("id");
+        reg1.setUserid(userid);
         Registration reg2 = new Registration();
         reg2.setId("id2");
+        reg2.setUserid(userid);
 
-        RegistrationDb.getInstance().addRegistration(userid, reg1);
-        RegistrationDb.getInstance().addRegistration(userid, reg2);
+        RegistrationDb.getInstance().addRegistration(reg1);
+        RegistrationDb.getInstance().addRegistration(reg2);
 
         // when
         RegistrationDb.getInstance().removeRegistration(userid, reg1.getId());
@@ -58,11 +62,13 @@ public class RegistrationDbTest {
         String userid = "user";
         Registration reg1 = new Registration();
         reg1.setId("id");
+        reg1.setUserid(userid);
         Registration reg2 = new Registration();
         reg2.setId("id2");
+        reg2.setUserid(userid);
 
-        RegistrationDb.getInstance().addRegistration(userid, reg1);
-        RegistrationDb.getInstance().addRegistration(userid, reg2);
+        RegistrationDb.getInstance().addRegistration(reg1);
+        RegistrationDb.getInstance().addRegistration(reg2);
 
         // when
         RegistrationDb.getInstance().removeRegistration("userid2", reg1.getId());

@@ -26,12 +26,28 @@ public class RegistrationDb {
         List<Registration> regs = registrations.get(registration.getUserid());
         if (regs == null) {
             regs = new ArrayList<>();
-            regs.add(registration);
+            registrations.put(registration.getUserid(), regs);
         }
-        registrations.put(registration.getUserid(), regs);
+        regs.add(registration);
     }
 
     public List<Registration> getRegistrations(String userid) {
         return registrations.get(userid);
+    }
+
+    public void clear() {
+        this.registrations.clear();
+    }
+
+    public void removeRegistration(String userid, String id) {
+        List<Registration> registrations = this.registrations.get(userid);
+        if (registrations != null) {
+            for (Registration reg : registrations) {
+                if (reg.getId().equals(id)) {
+                    registrations.remove(reg);
+                    break;
+                }
+            }
+        }
     }
 }
