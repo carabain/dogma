@@ -6,6 +6,7 @@ import java.util.List;
 public class Registration {
 
     private String userid;
+
     private String host;
     private String netwerkid;
     private String smartcontractAdress;
@@ -14,6 +15,16 @@ public class Registration {
     private Object smartContractBin;
 
     private List<String> oracleIds = new ArrayList<String>();
+
+    private String description;
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     public String getUserid() {
         return userid;

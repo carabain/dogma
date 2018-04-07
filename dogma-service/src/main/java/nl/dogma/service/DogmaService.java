@@ -17,4 +17,6 @@ public interface DogmaService {
     List<Registration> getRegistrations(String userid);
 
     void addRegistration(String userid, Registration registration);
+
+    void removeRegistration(String userid, String registration);
 }

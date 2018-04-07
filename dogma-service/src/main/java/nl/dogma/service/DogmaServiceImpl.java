@@ -16,16 +16,17 @@ import rx.Subscription;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import java.util.List;
 import java.io.IOException;
+import java.util.List;
 
 import static org.web3j.tx.Contract.GAS_LIMIT;
 import static org.web3j.tx.ManagedTransaction.GAS_PRICE;
 
+@Path("/rest")
 public class DogmaServiceImpl implements DogmaService {
 
     @Override
-    @Path("/getOracles")
+    @Path("/oracles")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public DutchBrOracle getDutchBrOracle() {
@@ -33,7 +34,7 @@ public class DogmaServiceImpl implements DogmaService {
     }
 
     @Override
-    @Path("/pushData")
+    @Path("/data")
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     public void pushData(String userid, List<BrOracle> oracledata) {
@@ -41,7 +42,7 @@ public class DogmaServiceImpl implements DogmaService {
     }
 
     @Override
-    @Path("/addRegistration")
+    @Path("/registration")
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     public void addRegistration(String userid, Registration registration) {
@@ -49,10 +50,19 @@ public class DogmaServiceImpl implements DogmaService {
     }
 
     @Override
-    @Path("/getRegistrations")
+    @Path("/registration/{user}/{id}")
+    @DELETE
+    @Produces(MediaType.APPLICATION_JSON)
+    public void removeRegistration(@PathParam("user") String userid, @PathParam("id") String registration) {
+//        RegistrationDb.getInstance().addRegistration(userid, registration);
+    }
+
+
+    @Override
+    @Path("/registration/{user}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Registration> getRegistrations(String userid) {
+    public List<Registration> getRegistrations(@PathParam("user") String userid) {
         return RegistrationDb.getInstance().getRegistrations(userid);
     }
 
