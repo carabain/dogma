@@ -1,8 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Contract} from '../shared/model/contract.model';
-import {Oracle} from '../shared/model/oracle.model';
 import {ContractsService} from '../shared/services/contracts.service';
-import {OracleService} from '../shared/services/oracle.service';
 
 @Component({
   selector: 'app-test-data',
@@ -23,16 +21,14 @@ export class TestDataComponent implements OnInit {
 
   display = false;
   contracts: Contract[];
-  oracles: Oracle[];
 
   selectedContract: Contract;
 
-  constructor(private contractService: ContractsService, private oracleService: OracleService) {
+  constructor(private contractService: ContractsService) {
   }
 
   ngOnInit() {
     this.contractService.getContracts().subscribe(result => this.contracts = result);
-    this.oracleService.getOracles().subscribe(result => this.oracles = result);
   }
 
   edit(contract) {

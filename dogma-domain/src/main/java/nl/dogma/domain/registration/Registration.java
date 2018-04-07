@@ -1,5 +1,7 @@
 package nl.dogma.domain.registration;
 
+import nl.dogma.domain.oracle.domain.BrOracle;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,7 +18,8 @@ public class Registration {
     private Object smartcontractAbi;
     private Object smartContractBin;
 
-    private List<String> oracleIds = new ArrayList<String>();
+    private List<String> oracleIds = new ArrayList<>();
+    private List<BrOracle> oracles = new ArrayList<>();
 
     private String description;
 
@@ -90,5 +93,13 @@ public class Registration {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public List<BrOracle> getOracles() {
+        return oracles;
+    }
+
+    public void setOracles(List<BrOracle> oracles) {
+        this.oracles = oracles;
     }
 }
