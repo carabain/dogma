@@ -16,7 +16,8 @@ public class BrOracle {
 	private String name;
 	private String description;
 	private LocalDate creationDate;
-	// daar waar het oracle geregistreerd kan worden
+
+	/** daar waar het oracle geregistreerd kan worden */
 	private String endpoint;
 
 	private ObjectType infoType;
@@ -28,8 +29,6 @@ public class BrOracle {
 	public BasisRegistratie getBasisRegistratie() {
 		return basisRegistratie;
 	}
-
-
 
 	public void setBasisRegistratie(BasisRegistratie basisRegistratie) {
 		this.basisRegistratie = basisRegistratie;
@@ -60,10 +59,10 @@ public class BrOracle {
 	public void setEndpoint(String endpoint) {
 		this.endpoint = endpoint;
 	}
+
 	public String getEndpoint() {
 		return endpoint;
 	}
-
 
 	public void addValue(OracleContentValue contentValue) {
 		this.values.add(contentValue);

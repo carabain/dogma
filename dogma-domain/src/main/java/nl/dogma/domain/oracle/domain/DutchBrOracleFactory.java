@@ -34,6 +34,18 @@ public class DutchBrOracleFactory {
         brOraclepersoon.setCreationDate(LocalDate.now());
         BrOracleDb.getInstance().addBrOracle(brOraclepersoon);
 
+        BrOracle brOraclepersoonAlive = new BrOracle();
+        brOraclepersoonAlive.setEndpoint("endpoint");
+        brOraclepersoonAlive.setDescription("Persoonsgegevens");
+        brOraclepersoonAlive.setId("PRSMODB");
+        brOraclepersoonAlive.setName("PersoongegevensAlive");
+        brOraclepersoonAlive.setBasisRegistratie(BasisRegistratie.BAG);
+        brOraclepersoonAlive.setInfoType(ObjectType.PERSON);
+        brOraclepersoonAlive.addValue(new OracleContentValue("aliveid", "Is Person deceased or alive", DataType.BOOLEAN));
+        brOraclepersoonAlive.setCreationDate(LocalDate.now());
+        BrOracleDb.getInstance().addBrOracle(brOraclepersoonAlive);
+
+
         BrOracle brOracleinkomen = new BrOracle();
         brOracleinkomen.setEndpoint("endpoint");
         brOracleinkomen.setDescription("Basisinkomen van een Natuurlijk Persoon");
@@ -46,7 +58,7 @@ public class DutchBrOracleFactory {
         BrOracleDb.getInstance().addBrOracle(brOracleinkomen);
 
         DutchBrOracle dutchBrOracle = new DutchBrOracle();
-        dutchBrOracle.addBrOracle(ObjectType.PERSON, brOraclepersoon);
+        dutchBrOracle.addBrOracle(ObjectType.PERSON, brOraclepersoonAlive);
         dutchBrOracle.addBrOracle(ObjectType.INCOME, brOracleinkomen);
 
         return dutchBrOracle;

@@ -6,5 +6,5 @@ package nl.dogma.domain.oracle.domain;
  */
 public enum DataType {
 
-	STRING, LONG, DOUBLE, DATE, DATETIME;
+	STRING, LONG, DOUBLE, DATE, DATETIME, BOOLEAN;
 }
