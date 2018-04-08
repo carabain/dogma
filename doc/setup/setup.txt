@@ -4,7 +4,7 @@ Chain initialiseren met genesis block:
 geth --datadir /c/ws/blockchain/DogmaChain/data init doc/setup/genesis.json
 
 Chain starten:
-geth --datadir /c/ws/blockchain/DogmaChain/data --networkid 2636 console 2>> /c/ws/blockchain/DogmaChain/DogmaChain.log
+geth --datadir /c/ws/blockchain/DogmaChain/data --networkid 2636 --rpc --rpcapi personal,db,eth,net,web3 console 2>> /c/ws/blockchain/DogmaChain/DogmaChain.log
 
 Extra console:
 geth attach \\\\.\\pipe\\geth.ipc
@@ -21,7 +21,7 @@ Account unlocken:
 personal.unlockAccount(web3.eth.accounts[0])
 
 Saldo opvragen:
-eth.getBalance("0x5e06159015565e1ffadc88267265a820e28f9b3b")
+eth.getBalance(web3.eth.accounts[0])
 
 Miner starten/stoppen:
 miner.start() / miner.stop()
@@ -29,7 +29,9 @@ miner.start() / miner.stop()
 -----------------------------
 
 Solidity smart contract compileren:
-solc -o ../target --bin --abi nl/belastingdienst/dogma/Greeter.sol
+solc -o target --bin --abi doc/Greeter.sol
+
+ web3j solidity generate target/greeter.bin target/greeter.abi -o dogma-service/src/main/java -p nl.dogma.service
 
 Smart contract deployen
 loadScript("src/deploy_greeter.js")

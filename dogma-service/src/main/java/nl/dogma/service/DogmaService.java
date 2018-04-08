@@ -7,7 +7,9 @@ import java.util.List;
 
 public interface DogmaService {
 
-    void createAnddeployAndSendContract();
+    DogmaServiceImpl.Xxx createAnddeployContract();
+
+    void callContract(DogmaServiceImpl.Xxx xxx);
 
     List<BrOracle> getDutchBrOracle();
 

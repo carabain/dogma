@@ -15,13 +15,20 @@ contract greeter is mortal {
     /* Define variable greeting of the type string */
     string greeting;
 
+    event callbackDummy(
+        address indexed _value
+    );
+
+    event callbackDummy();
+
     /* This runs when the contract is executed */
     function greeter(string _greeting) public {
         greeting = _greeting;
     }
 
     /* Main function */
-    function greet() constant returns (string) {
+    function greet() public constant returns (string) {
+        emit callbackDummy(msg.sender);
         return greeting;
     }
 }

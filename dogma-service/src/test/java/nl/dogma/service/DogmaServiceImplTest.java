@@ -18,6 +18,8 @@ import java.time.LocalDate;
 
 public class DogmaServiceImplTest {
 
+    private Subscription subscription;
+
     @Test
     public void indienObjectDanJsonFormaat() throws JsonProcessingException {
         BrOracle brOracle = new BrOracle();
@@ -39,24 +41,24 @@ public class DogmaServiceImplTest {
     }
 
     @Test
-    @Ignore
     public void test() {
         DogmaService service = new DogmaServiceImpl();
-        service.createAnddeployAndSendContract();
+        DogmaServiceImpl.Xxx xxx = service.createAnddeployContract();
+        service.callContract(xxx);
     }
 
     @Test
     @Ignore
     public void test2() throws Exception {
-        //Web3j web3 = Web3j.build(new HttpService());
-        Web3j web3 = Web3j.build(new WindowsIpcService("\\\\.\\pipe\\geth.ipc"));
-        Subscription subscription = web3.blockObservable(true).subscribe(block -> {
+        Web3j web3 = Web3j.build(new HttpService());
+        //Web3j web3 = Web3j.build(new WindowsIpcService("\\\\.\\pipe\\geth.ipc"));
+        subscription = web3.blockObservable(true).subscribe(block -> {
             System.out.println("Sweet, block number " + block.getBlock().getNumber() + " has just been created");
         }, Throwable::printStackTrace);
-        TimeUnit.SECONDS.sleep(10);
+        TimeUnit.MINUTES.sleep(1);
         subscription.unsubscribe();
 
         System.out.println("here");
-        TimeUnit.MINUTES.sleep(1);
+        //TimeUnit.MINUTES.sleep(1);
     }
 }
