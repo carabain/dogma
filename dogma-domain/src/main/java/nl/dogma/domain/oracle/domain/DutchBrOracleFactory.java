@@ -59,6 +59,7 @@ public class DutchBrOracleFactory {
 
         DutchBrOracle dutchBrOracle = new DutchBrOracle();
         dutchBrOracle.addBrOracle(ObjectType.PERSON, brOraclepersoonAlive);
+        dutchBrOracle.addBrOracle(ObjectType.PERSON, brOraclepersoon);
         dutchBrOracle.addBrOracle(ObjectType.INCOME, brOracleinkomen);
 
         return dutchBrOracle;

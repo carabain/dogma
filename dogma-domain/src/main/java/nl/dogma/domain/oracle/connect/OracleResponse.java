@@ -4,12 +4,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 import nl.dogma.domain.oracle.domain.BrOracle;
-import nl.dogma.domain.oracle.domain.OracleId;
 
 public class OracleResponse {
 	
 	// van --> het DutchBdOracle
-	private Map<OracleId, BrOracle> requestedOracles = new HashMap<OracleId, BrOracle>();
+	private Map<String, BrOracle> requestedOracles = new HashMap<>();
 
 	// naar --> het smartContract
 	private Long hashBlockChain;
@@ -28,10 +27,10 @@ public class OracleResponse {
 	public void setAdress(String adress) {
 		this.adressBlockChain = adress;
 	}
-	public Map<OracleId, BrOracle> getRequestedOracles() {
+	public Map<String, BrOracle> getRequestedOracles() {
 		return requestedOracles;
 	}
-	public void setRequestedOracles(Map<OracleId, BrOracle> requestedOracles) {
+	public void setRequestedOracles(Map<String, BrOracle> requestedOracles) {
 		this.requestedOracles = requestedOracles;
 	}
 }

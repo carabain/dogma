@@ -3,8 +3,6 @@ package nl.dogma.domain.oracle.connect;
 import java.util.ArrayList;
 import java.util.List;
 
-import nl.dogma.domain.oracle.domain.OracleId;
-
 public class OracleRequest {
 
 	// van --> het smartContract
@@ -13,7 +11,7 @@ public class OracleRequest {
 
 	// naar --> het DutchBrOracle
 	private String endpointOracle;
-	private List<OracleId> requestedOracles = new ArrayList<OracleId>();
+	private List<String> requestedOracles = new ArrayList<>();
 
 	
 	public Long getHash() {
@@ -28,10 +26,10 @@ public class OracleRequest {
 	public void setAdress(String adress) {
 		this.adressBlockChain = adress;
 	}
-	public List<OracleId> getRequestedOracles() {
+	public List<String> getRequestedOracles() {
 		return requestedOracles;
 	}
-	public void setRequestedOracles(List<OracleId> requesteOracles) {
+	public void setRequestedOracles(List<String> requesteOracles) {
 		this.requestedOracles = requesteOracles;
 	}
 	public String getEndpointOracle() {
