@@ -50,10 +50,11 @@ public class RegistrationDbTest {
         RegistrationDb.getInstance().addRegistration(reg2);
 
         // when
-        RegistrationDb.getInstance().removeRegistration(userid, reg1.getId());
+        RegistrationDb.getInstance().removeRegistration(reg1);
 
         // then
         Assert.assertEquals(1, RegistrationDb.getInstance().getRegistrations(userid).size());
+        Assert.assertEquals("id2", RegistrationDb.getInstance().getRegistrations(userid).get(0).getId());
     }
 
     @Test
@@ -71,7 +72,10 @@ public class RegistrationDbTest {
         RegistrationDb.getInstance().addRegistration(reg2);
 
         // when
-        RegistrationDb.getInstance().removeRegistration("userid2", reg1.getId());
+        Registration reg3 = new Registration();
+        reg3.setId("id3");
+        reg3.setUserid(userid);
+        RegistrationDb.getInstance().removeRegistration(reg3);
 
         // then
         Assert.assertEquals(2, RegistrationDb.getInstance().getRegistrations(userid).size());

@@ -16,6 +16,7 @@ public class BrOracle {
 	private String name;
 	private String description;
 	private LocalDate creationDate;
+	// daar waar het oracle geregistreerd kan worden
 	private String endpoint;
 
 	private ObjectType infoType;

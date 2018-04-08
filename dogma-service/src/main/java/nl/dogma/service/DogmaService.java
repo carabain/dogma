@@ -11,11 +11,11 @@ public interface DogmaService {
 
     List<BrOracle> getDutchBrOracle();
 
-    void pushData(String userid, List<BrOracle> oracledata);
+    void pushData(Registration registration);
 
     List<Registration> getRegistrations(String userid);
 
     void addRegistration(Registration registration);
 
-    void removeRegistration(String userid, String registration);
+    void removeRegistration(Registration registration);
 }

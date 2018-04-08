@@ -48,11 +48,11 @@ public class RegistrationDb {
         this.registrations.clear();
     }
 
-    public void removeRegistration(String userid, String id) {
-        List<Registration> registrations = this.registrations.get(userid);
+    public void removeRegistration(Registration registration) {
+        List<Registration> registrations = this.registrations.get(registration.getUserid());
         if (registrations != null) {
             for (Registration reg : registrations) {
-                if (reg.getId().equals(id)) {
+                if (reg.getId().equals(registration.getId())) {
                     registrations.remove(reg);
                     break;
                 }

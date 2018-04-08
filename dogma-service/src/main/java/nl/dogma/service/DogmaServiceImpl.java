@@ -36,7 +36,7 @@ public class DogmaServiceImpl implements DogmaService {
     @Path("/data")
     @POST
     @Produces(MediaType.APPLICATION_JSON)
-    public void pushData(String userid, List<BrOracle> oracledata) {
+    public void pushData(Registration registration) {
         // hier pushen naar het contract.
     }
 
@@ -52,8 +52,8 @@ public class DogmaServiceImpl implements DogmaService {
     @Path("/registration/{user}/{id}")
     @DELETE
     @Produces(MediaType.APPLICATION_JSON)
-    public void removeRegistration(@PathParam("user") String userid, @PathParam("id") String registration) {
-        RegistrationDb.getInstance().removeRegistration(userid, registration);
+    public void removeRegistration(@PathParam("registration") Registration registration) {
+        RegistrationDb.getInstance().removeRegistration(registration);
     }
 
 
