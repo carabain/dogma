@@ -32,6 +32,7 @@
         <div class="form-group" *ngFor="let parameter of oracle.values">
           <label for="{{parameter.id}}">{{parameter.description}}</label>
           <input id="{{parameter.id}}" name="{{parameter.id}}" [(ngModel)]="parameter.value" placeholder="Enter {{parameter.description}}" class="form-control" >
+          <small id="{{parameter.id}}Help" class="form-text text-muted">Type: {{parameter.datatype}}</small>
         </div>
       </form>
     </div>

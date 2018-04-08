@@ -25,7 +25,7 @@ export class TestDataComponent implements OnInit {
 
   selectedContract: Contract;
 
-  constructor(private contractService: ContractsService, private router: Router) {
+  constructor(private contractService: ContractsService) {
   }
 
   ngOnInit() {
@@ -41,7 +41,6 @@ export class TestDataComponent implements OnInit {
     console.log(this.selectedContract);
     this.display = false;
     this.contractService.saveContract(this.selectedContract);
-    this.router.navigate(['/testdata'])
   }
 
 }

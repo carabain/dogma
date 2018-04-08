@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
 import {Contract} from '../shared/model/contract.model';
 import {Oracle} from '../shared/model/oracle.model';
 import {ContractsService} from '../shared/services/contracts.service';
@@ -18,7 +19,7 @@ export class RegistrationComponent implements OnInit {
   indexes: { id: string, checked: boolean }[] = [];
   checkall: false;
 
-  constructor(private contractsService: ContractsService, private oracleService: OracleService, private userService: UserService) {
+  constructor(private contractsService: ContractsService, private oracleService: OracleService, private userService: UserService, private router: Router) {
   }
 
   ngOnInit() {
@@ -39,6 +40,7 @@ export class RegistrationComponent implements OnInit {
     }
     this.contract.userid = this.userService.username;
     this.contractsService.saveContract(this.contract).subscribe();
+    this.router.navigate(['/testdata']);
   }
 
   checkAll() {
