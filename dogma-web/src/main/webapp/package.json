@@ -11,7 +11,8 @@
     "e2e": "ng e2e",
     "jsonserver": "json-server --watch test/db.json",
     "proxy": "proxyserver --to http://localhost:8080 --port 80",
-    "corsproxy": "corsproxy"
+    "corsproxy": "corsproxy",
+    "buildProd": "ng build --prod"
   },
   "private": true,
   "dependencies": {

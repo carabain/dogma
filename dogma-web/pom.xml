@@ -17,6 +17,133 @@
     <build>
         <plugins>
 
+            <plugin>
+                <artifactId>maven-war-plugin</artifactId>
+                <!--<version>${version.war.plugin}</version>-->
+                <configuration>
+                    <!--<version>${version.enterprise.level}</version>-->
+                    <warSourceDirectory>${project.basedir}/src/main/webapp/dist</warSourceDirectory>
+                    <packagingExcludes>**/log4j.properties,**/log4j.xml</packagingExcludes>
+                    <webXml>src/main/webapp/WEB-INF/web.xml</webXml>
+                    <archive>
+                        <index>true</index>
+                        <manifest>
+                            <classpathPrefix>lib/</classpathPrefix>
+                            <addClasspath>true</addClasspath>
+                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                            <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+                            <addExtensions>false</addExtensions>
+                        </manifest>
+                        <manifestEntries>
+                            <Url>${project.url}</Url>
+                            <!--<Java-Compiler-Level>${version.java.compiler}</Java-Compiler-Level>-->
+                            <!--<Java-Source-Level>${version.java.source}</Java-Source-Level>-->
+                            <!--<Java-Target-Level>${version.java.target}</Java-Target-Level>-->
+                            <Java-Vendor>${java.vendor}</Java-Vendor>
+                            <Builder>${user.name}</Builder>
+                            <Specification-Title>${project.name}</Specification-Title>
+                            <Specification-Version>${project.version}</Specification-Version>
+                            <Specification-Vendor>${project.organization.name}</Specification-Vendor>
+                            <Implementation-Title>${project.name}</Implementation-Title>
+                            <Implementation-Version>${project.version}</Implementation-Version>
+                            <Implementation-Vendor>${project.organization.name}</Implementation-Vendor>
+                            <Implementation-Vendor-Id>${project.groupId}</Implementation-Vendor-Id>
+                            <!--<X-Compile-Source-JDK>${maven.compile.source}</X-Compile-Source-JDK>-->
+                            <!--<X-Compile-Target-JDK>${maven.compile.target}</X-Compile-Target-JDK>-->
+                        </manifestEntries>
+                    </archive>
+                    <webResources>
+                        <!-- Filter resources om maven variabelen (bijvoorbeeld version, artifactId en -->
+                        <!-- description) te vervangen door de waardes ervan -->
+                        <!--<resource>
+                            <directory>${project.basedir}/src/main/resources</directory>
+                            <targetPath>/WEB-INF/classes</targetPath>
+                            <filtering>true</filtering>
+                            <includes>
+                                <include>**/*.properties</include>
+                            </includes>
+                        </resource>
+                        <resource>
+                            <directory>${project.basedir}/src/main/webapp</directory>
+                            <targetPath>/</targetPath>
+                            <filtering>true</filtering>
+                            <includes>
+                                <include>versie-info.txt</include>
+                            </includes>
+                        </resource>-->
+                        <!-- XML-configuratiefiles opnemen in WAR -->
+                        <!--					<resource>
+                                                <directory>${project.basedir}/src/main/webapp/WEB-INF</directory>
+                                                <targetPath>/WEB-INF</targetPath>
+                                                <filtering>true</filtering>
+                                                <includes>
+                                                    <include>beans.xml</include>
+                                                    <include>ibm*.xml</include>
+                                                </includes>
+                                            </resource>-->
+                    </webResources>
+                </configuration>
+           </plugin>
+
+            <plugin>
+                <groupId>com.github.eirslett</groupId>
+                <artifactId>frontend-maven-plugin</artifactId>
+                <!-- Use the latest released version:
+                https://repo1.maven.org/maven2/com/github/eirslett/frontend-maven-plugin/ -->
+                <version>1.6</version>
+
+                <executions>
+                    <execution>
+                        <!-- optional: you don't really need execution ids, but it looks nice in your build log. -->
+                        <id>install node and npm</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>install-node-and-npm</goal>
+                        </goals>
+                        <configuration>
+                            <installDirectory>target</installDirectory>
+                            <!--<workingDirectory>src/main/webapp</workingDirectory>-->
+                            <nodeVersion>v8.9.4</nodeVersion>
+                            <!--<npmVersion>5.6.0</npmVersion>-->
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>npm install</id>
+                        <goals>
+                            <goal>npm</goal>
+                        </goals>
+                        <configuration>
+                            <installDirectory>target</installDirectory>
+                            <workingDirectory>src/main/webapp</workingDirectory>
+                            <arguments>install</arguments>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>build for production</id>
+                        <goals>
+                            <goal>npm</goal>
+                        </goals>
+                        <configuration>
+                            <installDirectory>target</installDirectory>
+                            <workingDirectory>src/main/webapp</workingDirectory>
+                            <arguments>run buildProd</arguments>
+                        </configuration>
+                    </execution>
+                </executions>
+                <configuration>
+                    <installDirectory>target</installDirectory>
+                    <workingDirectory>src/main/webapp</workingDirectory>
+                    <nodeVersion>v8.9.4</nodeVersion>
+
+                    <!-- optional: with node version greater than 4.0.0 will use npm provided by node distribution -->
+                    <!--<npmVersion>5.3.0</npmVersion>-->
+
+                    <!-- optional: where to download node and npm from. Defaults to https://nodejs.org/dist/ -->
+                    <!--<downloadRoot>http://myproxy.example.org/nodejs/</downloadRoot>-->
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 

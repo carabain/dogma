@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
 import {Contract} from '../shared/model/contract.model';
 import {ContractsService} from '../shared/services/contracts.service';
 
@@ -24,7 +25,7 @@ export class TestDataComponent implements OnInit {
 
   selectedContract: Contract;
 
-  constructor(private contractService: ContractsService) {
+  constructor(private contractService: ContractsService, private router: Router) {
   }
 
   ngOnInit() {
@@ -39,6 +40,8 @@ export class TestDataComponent implements OnInit {
   submit() {
     console.log(this.selectedContract);
     this.display = false;
+    this.contractService.saveContract(this.selectedContract);
+    this.router.navigate(['/testdata'])
   }
 
 }
