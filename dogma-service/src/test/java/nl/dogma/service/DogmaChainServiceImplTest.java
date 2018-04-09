@@ -1,16 +1,11 @@
 package nl.dogma.service;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import nl.dogma.domain.oracle.domain.*;
-import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.web3j.protocol.Web3j;
 import org.web3j.protocol.http.HttpService;
 import rx.Subscription;
 
-import java.time.LocalDate;
 import java.util.concurrent.TimeUnit;
 
 public class DogmaChainServiceImplTest {

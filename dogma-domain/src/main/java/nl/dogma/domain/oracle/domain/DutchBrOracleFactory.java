@@ -1,6 +1,5 @@
 package nl.dogma.domain.oracle.domain;
 
-import java.net.URL;
 import java.time.LocalDate;
 
 public class DutchBrOracleFactory {

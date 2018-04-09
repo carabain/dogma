@@ -1,9 +1,9 @@
 package nl.dogma.domain.registration;
 
-import nl.dogma.domain.oracle.domain.BrOracle;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import nl.dogma.domain.oracle.domain.BrOracle;
 
 public class Registration {
 

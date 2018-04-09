@@ -1,7 +1,5 @@
 package nl.dogma.domain.oracle.domain;
 
-import java.time.LocalDate;
-
 public class BrOracleFactory {
 
     private BrOracleFactory() {

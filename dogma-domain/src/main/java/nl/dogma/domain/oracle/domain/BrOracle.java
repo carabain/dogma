@@ -1,6 +1,5 @@
 package nl.dogma.domain.oracle.domain;
 
-import java.net.URL;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;

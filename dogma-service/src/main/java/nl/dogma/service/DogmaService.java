@@ -1,9 +1,9 @@
 package nl.dogma.service;
 
+import java.util.List;
+
 import nl.dogma.domain.oracle.domain.BrOracle;
 import nl.dogma.domain.registration.Registration;
-
-import java.util.List;
 
 public interface DogmaService {
 

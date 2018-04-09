@@ -1,38 +1,18 @@
 package nl.dogma.service;
 
+import javax.ws.rs.DELETE;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+import java.util.List;
 
 import nl.dogma.domain.oracle.domain.BrOracle;
 import nl.dogma.domain.oracle.domain.DutchBrOracleFactory;
 import nl.dogma.domain.registration.Registration;
 import nl.dogma.domain.registration.RegistrationDb;
-import org.web3j.abi.EventEncoder;
-import org.web3j.abi.TypeReference;
-import org.web3j.abi.datatypes.Address;
-import org.web3j.abi.datatypes.Event;
-import org.web3j.abi.datatypes.generated.Uint256;
-import org.web3j.abi.datatypes.generated.Uint8;
-import org.web3j.crypto.CipherException;
-import org.web3j.crypto.Credentials;
-import org.web3j.crypto.WalletUtils;
-import org.web3j.protocol.Web3j;
-import org.web3j.protocol.core.DefaultBlockParameterName;
-import org.web3j.protocol.core.methods.request.EthFilter;
-import org.web3j.protocol.core.methods.response.Web3ClientVersion;
-import org.web3j.protocol.http.HttpService;
-import rx.Observable;
-import rx.Subscription;
-
-import javax.ws.rs.*;
-import javax.ws.rs.core.MediaType;
-import java.io.IOException;
-import java.util.List;
-import java.math.BigInteger;
-import java.util.Arrays;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
-
-import static org.web3j.tx.Contract.GAS_LIMIT;
-import static org.web3j.tx.ManagedTransaction.GAS_PRICE;
 
 @Path("/rest")
 public class DogmaServiceImpl implements DogmaService {
@@ -68,7 +48,6 @@ public class DogmaServiceImpl implements DogmaService {
     public void removeRegistration(@PathParam("registration") Registration registration) {
         RegistrationDb.getInstance().removeRegistration(registration);
     }
-
 
     @Override
     @Path("/registration/{user}")

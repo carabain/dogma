@@ -1,20 +1,19 @@
 package nl.dogma.service;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import nl.dogma.domain.oracle.domain.*;
 import org.junit.Assert;
-import org.junit.Ignore;
 import org.junit.Test;
-import org.junit.Test;
-import org.web3j.protocol.Web3j;
-import org.web3j.protocol.http.HttpService;
-import org.web3j.protocol.ipc.WindowsIpcService;
-import rx.Subscription;
-
-import java.util.concurrent.TimeUnit;
 
 import java.time.LocalDate;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import nl.dogma.domain.oracle.domain.BasisRegistratie;
+import nl.dogma.domain.oracle.domain.BrOracle;
+import nl.dogma.domain.oracle.domain.DataType;
+import nl.dogma.domain.oracle.domain.DutchBrOracle;
+import nl.dogma.domain.oracle.domain.ObjectType;
+import nl.dogma.domain.oracle.domain.OracleContentValue;
 
 public class DogmaServiceImplTest {
 

@@ -1,12 +1,11 @@
 package nl.dogma.domain.registration;
 
-import nl.dogma.domain.oracle.domain.BrOracleDb;
-import nl.dogma.domain.oracle.domain.BrOracleFactory;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import nl.dogma.domain.oracle.domain.BrOracleFactory;
 
 public class RegistrationDb {
 
