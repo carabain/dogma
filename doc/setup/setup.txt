@@ -29,9 +29,12 @@ miner.start() / miner.stop()
 -----------------------------
 
 Solidity smart contract compileren:
-solc -o target --bin --abi doc/Greeter.sol
+solc -o target --bin --abi doc/Greeter.sol --overwrite
 
  web3j solidity generate target/greeter.bin target/greeter.abi -o dogma-service/src/main/java -p nl.dogma.service
+
+  web3j solidity generate target/mortal.bin target/mortal.abi -o dogma-service/src/main/java -p nl.dogma.service
+
 
 Smart contract deployen
 loadScript("src/deploy_greeter.js")

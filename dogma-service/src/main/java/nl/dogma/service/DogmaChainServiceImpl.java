@@ -103,15 +103,22 @@ public class DogmaChainServiceImpl implements DogmaChainService {
         Web3j web3 = Web3j.build(new HttpService());  // defaults to http://localhost:8545/
 
         try {
-            Greeter contract = Greeter.load(
+            Mortal contract = Mortal.load(
                     xxx.address, web3, xxx.credentials, GAS_PRICE, GAS_LIMIT);
             System.out.println("Loaded contract: " + contract.getContractAddress());
 
             System.out.println("Subscribing to contract...");
-            Subscription subscription = contract.callbackDummyEventObservable(
+            Subscription subscription = contract.greetedEventObservable(
                     DefaultBlockParameterName.EARLIEST, DefaultBlockParameterName.LATEST)
                     .subscribe(evento -> {
                         System.out.println("Event Received");
+                        System.out.println("Thread Name " + Thread.currentThread().getName());
+                    }, Throwable::printStackTrace);
+
+            Subscription anotherSubscription = contract.greetedAnotherEventObservable(
+                    DefaultBlockParameterName.EARLIEST, DefaultBlockParameterName.LATEST)
+                    .subscribe(evento -> {
+                        System.out.println("Another Event Received");
                         System.out.println("Thread Name " + Thread.currentThread().getName());
                     }, Throwable::printStackTrace);
 
@@ -120,8 +127,15 @@ public class DogmaChainServiceImpl implements DogmaChainService {
             contract.greet().send();
             System.out.println("Done.");
             TimeUnit.SECONDS.sleep(10);
+
+            System.out.println("Calling contract.another...");
+            contract.greetAnother().send();
+            System.out.println("Done.");
+            TimeUnit.SECONDS.sleep(10);
+
             System.out.println("Unsubscribing.");
             subscription.unsubscribe();
+            anotherSubscription.unsubscribe();
         } catch (Exception e) {
             e.printStackTrace();
         }
