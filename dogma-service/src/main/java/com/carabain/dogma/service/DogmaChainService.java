@@ -1,5 +1,7 @@
 package com.carabain.dogma.service;
 
+import org.web3j.crypto.Credentials;
+
 /**
  * Describes the chain related possibilities of Dogma.
  */
@@ -7,13 +9,8 @@ public interface DogmaChainService {
 
     /**
      *
-     * @return
+     * @param address
+     * @param credentials
      */
-    DogmaChainServiceImpl.Xxx createAnddeployContract();
-
-    /**
-     *
-     * @param xxx
-     */
-    void callContract(DogmaChainServiceImpl.Xxx xxx);
+    void callContract(String address, Credentials credentials);
 }

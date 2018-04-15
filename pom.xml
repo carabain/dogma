@@ -20,6 +20,7 @@
 
         <failIfNoTests>false</failIfNoTests>
 
+        <version.maven-clean-plugin>3.0.0</version.maven-clean-plugin>
         <version.maven-jar-plugin>3.0.2</version.maven-jar-plugin>
         <version.maven-war-plugin>3.2.0</version.maven-war-plugin>
         <version.maven-ear-plugin>3.0.0</version.maven-ear-plugin>
@@ -32,7 +33,8 @@
         <version.junit>4.12</version.junit>
         <version.javaee>7.0</version.javaee>
 
-        <generated.sources.dir>src/generated/java</generated.sources.dir>
+        <generated.sources.dir>src/generated/main/java</generated.sources.dir>
+        <generated.testsources.dir>src/generated/test/java</generated.testsources.dir>
 
     </properties>
 
@@ -74,6 +76,26 @@
         <pluginManagement>
             <plugins>
                 <plugin>
+                    <artifactId>maven-clean-plugin</artifactId>
+                    <version>${version.maven-clean-plugin}</version>
+                    <configuration>
+                        <filesets>
+                            <fileset>
+                                <directory>${generated.sources.dir}</directory>
+                                <includes>
+                                    <include>**</include>
+                                </includes>
+                            </fileset>
+                            <fileset>
+                                <directory>${generated.testsources.dir}</directory>
+                                <includes>
+                                    <include>**</include>
+                                </includes>
+                            </fileset>
+                        </filesets>
+                    </configuration>
+                </plugin>
+                <plugin>
                     <artifactId>maven-jar-plugin</artifactId>
                     <version>${version.maven-jar-plugin}</version>
                     <configuration>
@@ -106,6 +128,7 @@
                     <version>${version.build-helper-maven-plugin}</version>
                     <executions>
                         <execution>
+                            <id>add generated sources</id>
                             <phase>generate-sources</phase>
                             <goals>
                                 <goal>add-source</goal>
@@ -113,6 +136,18 @@
                             <configuration>
                                 <sources>
                                     <source>${generated.sources.dir}</source>
+                                </sources>
+                            </configuration>
+                        </execution>
+                        <execution>
+                            <id>add generated test sources</id>
+                            <phase>generate-test-sources</phase>
+                            <goals>
+                                <goal>add-test-source</goal>
+                            </goals>
+                            <configuration>
+                                <sources>
+                                    <source>${generated.testsources.dir}</source>
                                 </sources>
                             </configuration>
                         </execution>
