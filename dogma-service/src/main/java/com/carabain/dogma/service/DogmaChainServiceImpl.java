@@ -12,9 +12,6 @@ import rx.Subscription;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
-import com.carabain.dogma.service.contract.Greeter;
-import com.carabain.dogma.service.contract.Mortal;
-
 import static org.web3j.tx.Contract.GAS_LIMIT;
 import static org.web3j.tx.ManagedTransaction.GAS_PRICE;
 
@@ -87,13 +84,14 @@ public class DogmaChainServiceImpl implements DogmaChainService {
 //            contract.greet();
             //TimeUnit.MINUTES.sleep(1);
             //subscription.unsubscribe();
-            Greeter contract = Greeter.deploy( web3, credentials,  GAS_PRICE, GAS_LIMIT, message).send();
-            System.out.println("Deployed contract: " + contract.getContractAddress());
 
-            Xxx xxx = new Xxx();
-            xxx.address = contract.getContractAddress();
-            xxx.credentials = credentials;
-            return xxx;
+//            Greeter contract = Greeter.deploy( web3, credentials,  GAS_PRICE, GAS_LIMIT, message).send();
+//            System.out.println("Deployed contract: " + contract.getContractAddress());
+//
+//            Xxx xxx = new Xxx();
+//            xxx.address = contract.getContractAddress();
+//            xxx.credentials = credentials;
+//            return xxx;
         } catch (IOException e) {
             e.printStackTrace();
         } catch (CipherException e) {
