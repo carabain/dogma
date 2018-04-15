@@ -9,51 +9,56 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 
-import nl.dogma.domain.oracle.domain.BrOracle;
-import nl.dogma.domain.oracle.domain.DutchBrOracleFactory;
-import nl.dogma.domain.registration.Registration;
-import nl.dogma.domain.registration.RegistrationDb;
+import com.carabain.dogma.domain.oracle.domain.BrOracle;
+import com.carabain.dogma.domain.oracle.domain.DutchBrOracleFactory;
+import com.carabain.dogma.domain.registration.Registration;
+import com.carabain.dogma.domain.registration.RegistrationDb;
 
-// TODO: It's good practice to include a version number in the path so you can have multiple versions deployed at once. That way consumers don't need to upgrade right away if things are working for them.
+/**
+ * REST implementation of {@link DogmaService}.
+ */
 @Path("/service")
+// TODO: It's good practice to include a version number in the path.
+// So you can have multiple versions deployed at once. That way consumers
+// don't need to upgrade right away if things are working for them.
 public class DogmaServiceImpl implements DogmaService {
 
-    @Override
-    @Path("/oracles")
     @GET
+    @Path("/oracles")
     @Produces(MediaType.APPLICATION_JSON)
+    @Override
     public List<BrOracle> getDutchBrOracle() {
         return DutchBrOracleFactory.getInstance().getDutchBrOracle().getOracles();
     }
 
-    @Override
-    @Path("/data")
     @POST
+    @Path("/data")
     @Produces(MediaType.APPLICATION_JSON)
+    @Override
     public void pushData(Registration registration) {
         // hier pushen naar het contract.
     }
 
-    @Override
-    @Path("/registration")
     @POST
+    @Path("/registration")
     @Produces(MediaType.APPLICATION_JSON)
+    @Override
     public void addRegistration(Registration registration) {
         RegistrationDb.getInstance().addRegistration(registration);
     }
 
-    @Override
-    @Path("/registration/{user}/{id}")
     @DELETE
+    @Path("/registration/{user}/{id}")
     @Produces(MediaType.APPLICATION_JSON)
+    @Override
     public void removeRegistration(@PathParam("registration") Registration registration) {
         RegistrationDb.getInstance().removeRegistration(registration);
     }
 
-    @Override
-    @Path("/registration/{user}")
     @GET
+    @Path("/registration/{user}")
     @Produces(MediaType.APPLICATION_JSON)
+    @Override
     public List<Registration> getRegistrations(@PathParam("user") String userid) {
         return RegistrationDb.getInstance().getRegistrations(userid);
     }

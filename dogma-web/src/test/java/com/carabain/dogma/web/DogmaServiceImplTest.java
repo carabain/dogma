@@ -5,16 +5,18 @@ import org.junit.Test;
 
 import java.time.LocalDate;
 
+import com.carabain.dogma.domain.oracle.domain.BasisRegistratie;
+import com.carabain.dogma.domain.oracle.domain.BrOracle;
+import com.carabain.dogma.domain.oracle.domain.DataType;
+import com.carabain.dogma.domain.oracle.domain.DutchBrOracle;
+import com.carabain.dogma.domain.oracle.domain.ObjectType;
+import com.carabain.dogma.domain.oracle.domain.OracleContentValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import nl.dogma.domain.oracle.domain.BasisRegistratie;
-import nl.dogma.domain.oracle.domain.BrOracle;
-import nl.dogma.domain.oracle.domain.DataType;
-import nl.dogma.domain.oracle.domain.DutchBrOracle;
-import nl.dogma.domain.oracle.domain.ObjectType;
-import nl.dogma.domain.oracle.domain.OracleContentValue;
-
+/**
+ * Unittests for {@link DogmaServiceImpl}.
+ */
 public class DogmaServiceImplTest {
 
     @Test
