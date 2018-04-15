@@ -1,4 +1,4 @@
-package nl.dogma.service;
+package com.carabain.dogma.web;
 
 import java.util.List;
 

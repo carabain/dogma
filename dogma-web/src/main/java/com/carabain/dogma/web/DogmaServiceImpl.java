@@ -1,4 +1,4 @@
-package nl.dogma.service;
+package com.carabain.dogma.web;
 
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -14,7 +14,8 @@ import nl.dogma.domain.oracle.domain.DutchBrOracleFactory;
 import nl.dogma.domain.registration.Registration;
 import nl.dogma.domain.registration.RegistrationDb;
 
-@Path("/rest")
+// TODO: It's good practice to include a version number in the path so you can have multiple versions deployed at once. That way consumers don't need to upgrade right away if things are working for them.
+@Path("/service")
 public class DogmaServiceImpl implements DogmaService {
 
     @Override

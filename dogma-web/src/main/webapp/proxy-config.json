@@ -1,7 +1,7 @@
 {
   "routes": [
     {
-      "path": "/dogma/rest/*",
+      "path": "/dogma/service/*",
       "upstream": "dogma"
     }
   ],
