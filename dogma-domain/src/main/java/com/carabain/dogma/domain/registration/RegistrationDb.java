@@ -27,7 +27,7 @@ public class RegistrationDb {
         return instance;
     }
 
-    public void addRegistration( Registration registration) {
+    public void addRegistration(Registration registration) {
         List<Registration> regs = registrations.get(registration.getUserid());
         if (regs == null) {
             regs = new ArrayList<>();

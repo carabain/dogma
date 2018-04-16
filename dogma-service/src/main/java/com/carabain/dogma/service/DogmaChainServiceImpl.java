@@ -3,11 +3,9 @@ package com.carabain.dogma.service;
 import org.web3j.crypto.Credentials;
 import org.web3j.protocol.Web3j;
 import org.web3j.protocol.core.DefaultBlockParameterName;
-import org.web3j.protocol.core.methods.response.Web3ClientVersion;
 import org.web3j.protocol.http.HttpService;
 import rx.Subscription;
 
-import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import static org.web3j.tx.Contract.GAS_LIMIT;

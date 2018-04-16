@@ -1,122 +1,122 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
-	<xs:complexType name="oracleContentValue">
-		<xs:sequence>
-			<xs:element name="datatype" type="dataType" minOccurs="0" />
-			<xs:element name="description" type="xs:string" minOccurs="0" />
-			<xs:element name="id" type="xs:string" minOccurs="0" />
-			<xs:element name="value" type="xs:string" minOccurs="0" />
-		</xs:sequence>
-	</xs:complexType>
+    <xs:complexType name="oracleContentValue">
+        <xs:sequence>
+            <xs:element name="datatype" type="dataType" minOccurs="0"/>
+            <xs:element name="description" type="xs:string" minOccurs="0"/>
+            <xs:element name="id" type="xs:string" minOccurs="0"/>
+            <xs:element name="value" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
 
-	<xs:complexType name="dutchBrOracle">
-		<xs:sequence>
-			<xs:element name="description" type="xs:string" minOccurs="0" />
-			<xs:element name="endpoint" type="xs:anyURI" minOccurs="0" />
-			<xs:element name="oraclePerBasisRegistratie">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="entry" minOccurs="0" maxOccurs="unbounded">
-							<xs:complexType>
-								<xs:sequence>
-									<xs:element name="key" minOccurs="0" type="basisRegistratie" />
-									<xs:element name="value" minOccurs="0" type="arrayList" />
-								</xs:sequence>
-							</xs:complexType>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element name="oraclePerObjectType">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="entry" minOccurs="0" maxOccurs="unbounded">
-							<xs:complexType>
-								<xs:sequence>
-									<xs:element name="key" minOccurs="0" type="objectType" />
-									<xs:element name="value" minOccurs="0" type="arrayList" />
-								</xs:sequence>
-							</xs:complexType>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
+    <xs:complexType name="dutchBrOracle">
+        <xs:sequence>
+            <xs:element name="description" type="xs:string" minOccurs="0"/>
+            <xs:element name="endpoint" type="xs:anyURI" minOccurs="0"/>
+            <xs:element name="oraclePerBasisRegistratie">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="entry" minOccurs="0" maxOccurs="unbounded">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="key" minOccurs="0" type="basisRegistratie"/>
+                                    <xs:element name="value" minOccurs="0" type="arrayList"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="oraclePerObjectType">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="entry" minOccurs="0" maxOccurs="unbounded">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="key" minOccurs="0" type="objectType"/>
+                                    <xs:element name="value" minOccurs="0" type="arrayList"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
 
-	<xs:complexType name="arrayList">
-		<xs:complexContent>
-			<xs:extension base="abstractList">
-				<xs:sequence />
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
+    <xs:complexType name="arrayList">
+        <xs:complexContent>
+            <xs:extension base="abstractList">
+                <xs:sequence/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
 
-	<xs:complexType name="abstractList" abstract="true">
-		<xs:complexContent>
-			<xs:extension base="abstractCollection">
-				<xs:sequence />
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
+    <xs:complexType name="abstractList" abstract="true">
+        <xs:complexContent>
+            <xs:extension base="abstractCollection">
+                <xs:sequence/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
 
-	<xs:complexType name="abstractCollection" abstract="true">
-		<xs:sequence />
-	</xs:complexType>
+    <xs:complexType name="abstractCollection" abstract="true">
+        <xs:sequence/>
+    </xs:complexType>
 
-	<xs:complexType name="oracleContent">
-		<xs:sequence>
-			<xs:element name="objectType" type="objectType" minOccurs="0" />
-			<xs:element name="oracleContentGroups" type="oracleContentGroup"
-				nillable="true" minOccurs="0" maxOccurs="unbounded" />
-		</xs:sequence>
-	</xs:complexType>
+    <xs:complexType name="oracleContent">
+        <xs:sequence>
+            <xs:element name="objectType" type="objectType" minOccurs="0"/>
+            <xs:element name="oracleContentGroups" type="oracleContentGroup"
+                        nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
 
-	<xs:complexType name="oracleContentGroup">
-		<xs:sequence>
-			<xs:element name="description" type="xs:string" minOccurs="0" />
-			<xs:element name="id" type="xs:string" minOccurs="0" />
-		</xs:sequence>
-	</xs:complexType>
+    <xs:complexType name="oracleContentGroup">
+        <xs:sequence>
+            <xs:element name="description" type="xs:string" minOccurs="0"/>
+            <xs:element name="id" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
 
-	<xs:complexType name="brOracle">
-		<xs:sequence>
-			<xs:element name="basisRegistratie" type="basisRegistratie"
-				minOccurs="0" />
-		</xs:sequence>
-	</xs:complexType>
+    <xs:complexType name="brOracle">
+        <xs:sequence>
+            <xs:element name="basisRegistratie" type="basisRegistratie"
+                        minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
 
-	<xs:simpleType name="dataType">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="STRING" />
-			<xs:enumeration value="LONG" />
-			<xs:enumeration value="DOUBLE" />
-			<xs:enumeration value="DATE" />
-			<xs:enumeration value="DATETIME" />
-		</xs:restriction>
-	</xs:simpleType>
+    <xs:simpleType name="dataType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="STRING"/>
+            <xs:enumeration value="LONG"/>
+            <xs:enumeration value="DOUBLE"/>
+            <xs:enumeration value="DATE"/>
+            <xs:enumeration value="DATETIME"/>
+        </xs:restriction>
+    </xs:simpleType>
 
-	<xs:simpleType name="objectType">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="ADRESS" />
-			<xs:enumeration value="BUILDING" />
-			<xs:enumeration value="INCOME" />
-			<xs:enumeration value="CADASTRAL" />
-			<xs:enumeration value="SUBSOIL" />
-			<xs:enumeration value="PERSON" />
-			<xs:enumeration value="TOPOGRAPHY" />
-			<xs:enumeration value="VEHICLE" />
-			<xs:enumeration value="BUSINESS" />
-			<xs:enumeration value="PROPERTY" />
-		</xs:restriction>
-	</xs:simpleType>
+    <xs:simpleType name="objectType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="ADRESS"/>
+            <xs:enumeration value="BUILDING"/>
+            <xs:enumeration value="INCOME"/>
+            <xs:enumeration value="CADASTRAL"/>
+            <xs:enumeration value="SUBSOIL"/>
+            <xs:enumeration value="PERSON"/>
+            <xs:enumeration value="TOPOGRAPHY"/>
+            <xs:enumeration value="VEHICLE"/>
+            <xs:enumeration value="BUSINESS"/>
+            <xs:enumeration value="PROPERTY"/>
+        </xs:restriction>
+    </xs:simpleType>
 
-	<xs:simpleType name="basisRegistratie">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="BRK" />
-			<xs:enumeration value="BAG" />
-		</xs:restriction>
-	</xs:simpleType>
+    <xs:simpleType name="basisRegistratie">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="BRK"/>
+            <xs:enumeration value="BAG"/>
+        </xs:restriction>
+    </xs:simpleType>
 </xs:schema>
 

@@ -1,6 +1,5 @@
 package com.carabain.dogma.service;
 
-import org.junit.Ignore;
 import org.junit.Test;
 import org.web3j.crypto.CipherException;
 import org.web3j.crypto.Credentials;
@@ -11,7 +10,6 @@ import org.web3j.tx.Contract;
 import rx.Subscription;
 
 import java.io.IOException;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Unittests for {@link DogmaChainServiceImpl}.

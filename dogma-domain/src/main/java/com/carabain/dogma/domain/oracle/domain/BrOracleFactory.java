@@ -14,7 +14,7 @@ public class BrOracleFactory {
         }
         return instance;
     }
-    
+
     public BrOracle createBrOracle(String oracleId) {
         final BrOracle oracleTemplate = BrOracleDb.getInstance().getOracle(oracleId);
 

@@ -5,9 +5,9 @@ package com.carabain.dogma.domain.smartcontract.proxy;
  */
 public class SmartContract {
 
-	private Long hash;
-	
-	public Long getHash() {
-		return hash;
-	}
+    private Long hash;
+
+    public Long getHash() {
+        return hash;
+    }
 }

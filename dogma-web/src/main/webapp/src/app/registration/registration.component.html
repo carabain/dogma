@@ -2,7 +2,8 @@
 <form>
   <div class="form-group">
     <label for="description">Description</label>
-    <input type="text" class="form-control" id="description" placeholder="Enter Description" [(ngModel)]="contract.description" name="description ">
+    <input type="text" class="form-control" id="description" placeholder="Enter Description"
+           [(ngModel)]="contract.description" name="description ">
   </div>
   <div class="form-group">
     <label for="host">Host</label>
@@ -10,7 +11,8 @@
   </div>
   <div class="form-group">
     <label for="netwerkid">NetwerkId</label>
-    <input type="text" class="form-control" id="netwerkid" placeholder="Enter NetwerkId" [(ngModel)]="contract.netwerkid"
+    <input type="text" class="form-control" id="netwerkid" placeholder="Enter NetwerkId"
+           [(ngModel)]="contract.netwerkid"
            name="netwerkid">
   </div>
   <div class="form-group">
@@ -30,11 +32,11 @@
   </div>
 
 
-
   <p-table [value]="oracles" [styleClass]="'table-striped table-hover'">
     <ng-template pTemplate="header">
       <tr>
-        <th width="30px"><input type="checkbox" title="{{checkall? 'Uncheck': 'Check'}} all" (click)="checkAll()" [(ngModel)]="checkall" name="checkall"></th>
+        <th width="30px"><input type="checkbox" title="{{checkall? 'Uncheck': 'Check'}} all" (click)="checkAll()"
+                                [(ngModel)]="checkall" name="checkall"></th>
         <th>#</th>
         <th>Name</th>
       </tr>

@@ -11,65 +11,69 @@ import java.util.List;
  */
 public class BrOracle {
 
-	private String id;
-	private String name;
-	private String description;
-	private LocalDate creationDate;
+    private String id;
+    private String name;
+    private String description;
+    private LocalDate creationDate;
 
-	/** daar waar het oracle geregistreerd kan worden */
-	private String endpoint;
+    /**
+     * daar waar het oracle geregistreerd kan worden
+     */
+    private String endpoint;
 
-	private ObjectType infoType;
-	private BasisRegistratie basisRegistratie;
+    private ObjectType infoType;
+    private BasisRegistratie basisRegistratie;
 
-	private List<OracleContentValue> values = new ArrayList<>();
+    private List<OracleContentValue> values = new ArrayList<>();
 
 
-	public BasisRegistratie getBasisRegistratie() {
-		return basisRegistratie;
-	}
+    public BasisRegistratie getBasisRegistratie() {
+        return basisRegistratie;
+    }
 
-	public void setBasisRegistratie(BasisRegistratie basisRegistratie) {
-		this.basisRegistratie = basisRegistratie;
-	}
+    public void setBasisRegistratie(BasisRegistratie basisRegistratie) {
+        this.basisRegistratie = basisRegistratie;
+    }
 
-	public List<OracleContentValue> getValues(){ return values;}
+    public List<OracleContentValue> getValues() {
+        return values;
+    }
 
-	public String getId() {
-		return id;
-	}
+    public String getId() {
+        return id;
+    }
 
-	public String getDescription() {
-		return description;
-	}
+    public String getDescription() {
+        return description;
+    }
 
-	public ObjectType getInfoType() {
-		return infoType;
-	}
+    public ObjectType getInfoType() {
+        return infoType;
+    }
 
-	public LocalDate getCreationDate() {
-		return creationDate;
-	}
+    public LocalDate getCreationDate() {
+        return creationDate;
+    }
 
-	public void setInfoType(ObjectType infoType) {
-		this.infoType = infoType;
-	}
+    public void setInfoType(ObjectType infoType) {
+        this.infoType = infoType;
+    }
 
-	public void setEndpoint(String endpoint) {
-		this.endpoint = endpoint;
-	}
+    public void setEndpoint(String endpoint) {
+        this.endpoint = endpoint;
+    }
 
-	public String getEndpoint() {
-		return endpoint;
-	}
+    public String getEndpoint() {
+        return endpoint;
+    }
 
-	public void addValue(OracleContentValue contentValue) {
-		this.values.add(contentValue);
-	}
+    public void addValue(OracleContentValue contentValue) {
+        this.values.add(contentValue);
+    }
 
-	public void setCreationDate(LocalDate creationDate) {
-		this.creationDate = creationDate;
-	}
+    public void setCreationDate(LocalDate creationDate) {
+        this.creationDate = creationDate;
+    }
 
     public void setDescription(String description) {
         this.description = description;

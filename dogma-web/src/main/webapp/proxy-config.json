@@ -11,6 +11,6 @@
     }
   },
   "address": "localhost",
-  "port":"3000",
-  "changeOrigin":"true"
+  "port": "3000",
+  "changeOrigin": "true"
 }
