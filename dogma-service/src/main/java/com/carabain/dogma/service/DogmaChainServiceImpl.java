@@ -20,41 +20,36 @@ public class DogmaChainServiceImpl implements DogmaChainService {
     public void callContract(String address, Credentials credentials) {
         Web3j web3 = Web3j.build(new HttpService());  // defaults to http://localhost:8545/
 
-        try {
-            Mortal contract = Mortal.load(address, web3, credentials, GAS_PRICE, GAS_LIMIT);
-            System.out.println("Loaded contract: " + contract.getContractAddress());
+        Personal contract = Personal.load(address, web3, credentials, GAS_PRICE, GAS_LIMIT);
+        System.out.println("Loaded contract: " + contract.getContractAddress());
 
-            System.out.println("Subscribing to contract...");
-            Subscription subscription = contract.greetedEventObservable(
-                    DefaultBlockParameterName.EARLIEST, DefaultBlockParameterName.LATEST)
-                    .subscribe(evento -> {
-                        System.out.println("Event Received");
-                        System.out.println("Thread Name " + Thread.currentThread().getName());
-                    }, Throwable::printStackTrace);
+        System.out.println("Subscribing to contract event 'Alive requested'...");
+        Subscription aliveRequestedSubscription = contract.aliveRequestedEventObservable(
+                DefaultBlockParameterName.EARLIEST, DefaultBlockParameterName.LATEST)
+                .subscribe(event -> {
+                    handleAliveRequested(contract);
+                }, Throwable::printStackTrace);
 
-            Subscription anotherSubscription = contract.greetedAnotherEventObservable(
-                    DefaultBlockParameterName.EARLIEST, DefaultBlockParameterName.LATEST)
-                    .subscribe(evento -> {
-                        System.out.println("Another Event Received");
-                        System.out.println("Thread Name " + Thread.currentThread().getName());
-                    }, Throwable::printStackTrace);
+        System.out.println("Subscribing to contract event 'Alive updated'...");
+        Subscription aliveUpdatedSubscription = contract.aliveUpdatedEventObservable(
+                DefaultBlockParameterName.EARLIEST, DefaultBlockParameterName.LATEST)
+                .subscribe(event -> {
+                    handleAliveUpdated(contract);
+                }, Throwable::printStackTrace);
+    }
 
-            TimeUnit.SECONDS.sleep(10);
-            System.out.println("Calling contract...");
-            contract.greet().send();
-            System.out.println("Done.");
-            TimeUnit.SECONDS.sleep(10);
+    private void handleAliveRequested(Personal contract) {
+        System.out.println("Received event: Request for 'isAlive'.");
 
-            System.out.println("Calling contract.another...");
-            contract.greetAnother().send();
-            System.out.println("Done.");
-            TimeUnit.SECONDS.sleep(10);
+        System.out.println("Processing request...");
+        // hier gegevens bepalen (database internet? etc/ etc/)
+        boolean alive = true;
 
-            System.out.println("Unsubscribing.");
-            subscription.unsubscribe();
-            anotherSubscription.unsubscribe();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        System.out.println("Updating contract...");
+        contract.setAlive(alive).sendAsync();
+    }
+
+    private void handleAliveUpdated(Personal contract) {
+        System.out.println("Received event: Contract updated.");
     }
 }

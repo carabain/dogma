@@ -6,8 +6,8 @@ import java.util.Map;
 public class BrOracleDb {
 
     private static BrOracleDb instance;
-
     private Map<String, BrOracle> oracles = new HashMap<>();
+
 
     public static BrOracleDb getInstance() {
         if (instance == null) {
