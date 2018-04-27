@@ -24,10 +24,12 @@
         <version.maven-jar-plugin>3.0.2</version.maven-jar-plugin>
         <version.maven-war-plugin>3.2.0</version.maven-war-plugin>
         <version.maven-ear-plugin>3.0.0</version.maven-ear-plugin>
+        <version.maven-resources-plugin>3.0.2</version.maven-resources-plugin>
         <version.build-helper-maven-plugin>3.0.0</version.build-helper-maven-plugin>
         <version.frontend-maven-plugin>1.6</version.frontend-maven-plugin>
-        <version.web3j-maven-plugin>0.2.0</version.web3j-maven-plugin>
+        <version.web3j-maven-plugin>0.3.0</version.web3j-maven-plugin>
 
+        <version.slf4j>1.7.25</version.slf4j>
         <version.jackson>2.9.5</version.jackson>
         <version.web3j>3.3.1</version.web3j>
         <version.junit>4.12</version.junit>
@@ -48,6 +50,11 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${version.slf4j}</version>
+            </dependency>
+            <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
                 <artifactId>jackson-databind</artifactId>
                 <version>${version.jackson}</version>
@@ -61,6 +68,12 @@
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
                 <version>${version.junit}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-log4j12</artifactId>
+                <version>${version.slf4j}</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
@@ -121,6 +134,10 @@
                             <addMavenDescriptor>false</addMavenDescriptor>
                         </archive>
                     </configuration>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>${version.maven-resources-plugin}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>

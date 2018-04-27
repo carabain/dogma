@@ -20,12 +20,20 @@
             <version>${project.version}</version>
         </dependency>
         <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.web3j</groupId>
             <artifactId>core</artifactId>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
         </dependency>
         <dependency>
             <groupId>javax</groupId>
@@ -35,6 +43,26 @@
 
     <build>
         <plugins>
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>copying basecontracts</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.basedir}/src/test/resources/contracts/basecontracts</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>src/main/resources/contracts</directory>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <groupId>org.web3j</groupId>
                 <artifactId>web3j-maven-plugin</artifactId>
@@ -50,7 +78,7 @@
                             <sourceDestination>${project.basedir}/${generated.sources.dir}</sourceDestination>
                             <nativeJavaType>true</nativeJavaType>
                             <soliditySourceFiles>
-                                <directory>${project.basedir}/src/main/resources</directory>
+                                <directory>${project.basedir}/src/main/resources/contracts</directory>
                                 <includes>
                                     <include>**/*.sol</include>
                                 </includes>
@@ -68,10 +96,13 @@
                             <sourceDestination>${project.basedir}/${generated.testsources.dir}</sourceDestination>
                             <nativeJavaType>true</nativeJavaType>
                             <soliditySourceFiles>
-                                <directory>${project.basedir}/src/test/resources</directory>
+                                <directory>${project.basedir}/src/test/resources/contracts</directory>
                                 <includes>
                                     <include>**/*.sol</include>
                                 </includes>
+                                <excludes>
+                                    <exclude>basecontracts/</exclude>
+                                </excludes>
                             </soliditySourceFiles>
                         </configuration>
                     </execution>

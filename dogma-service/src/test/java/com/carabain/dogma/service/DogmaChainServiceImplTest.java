@@ -1,6 +1,8 @@
 package com.carabain.dogma.service;
 
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.web3j.crypto.Credentials;
 import org.web3j.crypto.WalletUtils;
 import org.web3j.protocol.Web3j;
@@ -14,6 +16,8 @@ import java.util.concurrent.TimeUnit;
  */
 public class DogmaChainServiceImplTest {
 
+    final Logger logger = LoggerFactory.getLogger(DogmaChainServiceImplTest.class);
+
     @Test
     public void test() throws Exception {
         DogmaChainService service = new DogmaChainServiceImpl();
@@ -24,7 +28,7 @@ public class DogmaChainServiceImplTest {
         Web3j web3 = Web3j.build(new HttpService());
         Credentials credentials = WalletUtils.loadCredentials(password, pathToWallet);
         PersonalChild contract = PersonalChild.deploy(web3, credentials, Contract.GAS_PRICE, Contract.GAS_LIMIT).send();
-        System.out.println("Deployed contract: " + contract.getContractAddress());
+        logger.info("Deployed contract: {}", contract.getContractAddress());
 
         service.callContract(contract.getContractAddress(), credentials);
 
