@@ -1,4 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
@@ -12,6 +12,12 @@
     <artifactId>dogma-service</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <name>${project.artifactId}</name>
+
+    <properties>
+        <contracts.directory>${project.basedir}/src/main/resources/contracts</contracts.directory>
+        <testcontracts.directory>${project.basedir}/src/test/resources/contracts</testcontracts.directory>
+        <basecontracts.directory>basecontracts</basecontracts.directory>
+    </properties>
 
     <dependencies>
         <dependency>
@@ -47,16 +53,16 @@
                 <artifactId>maven-resources-plugin</artifactId>
                 <executions>
                     <execution>
-                        <id>copying basecontracts</id>
-                        <phase>generate-sources</phase>
+                        <id>copying basecontracts for test</id>
+                        <phase>generate-test-sources</phase>
                         <goals>
                             <goal>copy-resources</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>${project.basedir}/src/test/resources/contracts/basecontracts</outputDirectory>
+                            <outputDirectory>${testcontracts.directory}/${basecontracts.directory}</outputDirectory>
                             <resources>
                                 <resource>
-                                    <directory>src/main/resources/contracts</directory>
+                                    <directory>${contracts.directory}</directory>
                                 </resource>
                             </resources>
                         </configuration>
@@ -78,7 +84,7 @@
                             <sourceDestination>${project.basedir}/${generated.sources.dir}</sourceDestination>
                             <nativeJavaType>true</nativeJavaType>
                             <soliditySourceFiles>
-                                <directory>${project.basedir}/src/main/resources/contracts</directory>
+                                <directory>${contracts.directory}</directory>
                                 <includes>
                                     <include>**/*.sol</include>
                                 </includes>
@@ -96,12 +102,12 @@
                             <sourceDestination>${project.basedir}/${generated.testsources.dir}</sourceDestination>
                             <nativeJavaType>true</nativeJavaType>
                             <soliditySourceFiles>
-                                <directory>${project.basedir}/src/test/resources/contracts</directory>
+                                <directory>${testcontracts.directory}</directory>
                                 <includes>
                                     <include>**/*.sol</include>
                                 </includes>
                                 <excludes>
-                                    <exclude>basecontracts/</exclude>
+                                    <exclude>${basecontracts.directory}/</exclude>
                                 </excludes>
                             </soliditySourceFiles>
                         </configuration>

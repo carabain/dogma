@@ -43,51 +43,51 @@ public class BrOracle {
         return id;
     }
 
+    public void setId(String id) {
+        this.id = id;
+    }
+
     public String getDescription() {
         return description;
-    }
-
-    public ObjectType getInfoType() {
-        return infoType;
-    }
-
-    public LocalDate getCreationDate() {
-        return creationDate;
-    }
-
-    public void setInfoType(ObjectType infoType) {
-        this.infoType = infoType;
-    }
-
-    public void setEndpoint(String endpoint) {
-        this.endpoint = endpoint;
-    }
-
-    public String getEndpoint() {
-        return endpoint;
-    }
-
-    public void addValue(OracleContentValue contentValue) {
-        this.values.add(contentValue);
-    }
-
-    public void setCreationDate(LocalDate creationDate) {
-        this.creationDate = creationDate;
     }
 
     public void setDescription(String description) {
         this.description = description;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public ObjectType getInfoType() {
+        return infoType;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setInfoType(ObjectType infoType) {
+        this.infoType = infoType;
+    }
+
+    public LocalDate getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(LocalDate creationDate) {
+        this.creationDate = creationDate;
+    }
+
+    public String getEndpoint() {
+        return endpoint;
+    }
+
+    public void setEndpoint(String endpoint) {
+        this.endpoint = endpoint;
+    }
+
+    public void addValue(OracleContentValue contentValue) {
+        this.values.add(contentValue);
     }
 
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

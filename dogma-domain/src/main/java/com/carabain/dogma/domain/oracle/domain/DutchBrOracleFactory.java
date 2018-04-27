@@ -4,11 +4,11 @@ import java.time.LocalDate;
 
 public class DutchBrOracleFactory {
 
+    private static DutchBrOracleFactory instance;
+
     private DutchBrOracleFactory() {
         super();
     }
-
-    private static DutchBrOracleFactory instance;
 
     public static DutchBrOracleFactory getInstance() {
         if (instance == null) {

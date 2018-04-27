@@ -5,7 +5,7 @@ contract salary {
     address owner;
     bool salaryBelowTarget;
 
-    event salaryBelowTargetRequested();
+    event salaryBelowTargetRequested(uint32 target);
     event salaryBelowTargetUpdated();
 
     /* This function is executed at initialization and sets the owner of the contract */
@@ -14,13 +14,13 @@ contract salary {
     }
 
     function isSalaryBelowTarget(uint32 target) public returns (bool) {
-        emit salaryBelowTargetRequested();
+        emit salaryBelowTargetRequested(target);
         return salaryBelowTarget;
     }
 
-    function setSalaryBelowTarget(bool _salaryBelowTarge) public {
+    function setSalaryBelowTarget(bool _salaryBelowTarget) public {
         // TODO: Controleren dat call van Oracle komt? Met een modifier?
-        salaryBelowTarget = _salaryBelowTarge;
+        salaryBelowTarget = _salaryBelowTarget;
         emit salaryBelowTargetUpdated();
     }
 

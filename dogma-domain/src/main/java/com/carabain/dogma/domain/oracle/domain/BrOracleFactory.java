@@ -2,11 +2,11 @@ package com.carabain.dogma.domain.oracle.domain;
 
 public class BrOracleFactory {
 
+    private static BrOracleFactory instance;
+
     private BrOracleFactory() {
         super();
     }
-
-    private static BrOracleFactory instance;
 
     public static BrOracleFactory getInstance() {
         if (instance == null) {
