@@ -1,6 +1,5 @@
 package com.carabain.dogma.web;
 
-import javax.inject.Inject;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -14,7 +13,6 @@ import com.carabain.dogma.domain.oracle.domain.BrOracle;
 import com.carabain.dogma.domain.oracle.domain.DutchBrOracleFactory;
 import com.carabain.dogma.domain.registration.Registration;
 import com.carabain.dogma.domain.registration.RegistrationDb;
-import com.carabain.dogma.service.DogmaChainService;
 
 /**
  * REST implementation of {@link DogmaService}.
@@ -24,9 +22,6 @@ import com.carabain.dogma.service.DogmaChainService;
 // So you can have multiple versions deployed at once. That way consumers
 // don't need to upgrade right away if things are working for them.
 public class DogmaServiceImpl implements DogmaService {
-
-    @Inject
-    private DogmaChainService chainService;
 
     @GET
     @Path("/oracles")
